@@ -79,7 +79,7 @@ export default function Contact() {
     <div className="w-full">
       {/* Hero */}
       <section className="bg-[hsl(215,65%,10%)]">
-        <div className="container mx-auto px-6 md:px-12 pt-20 pb-20">
+        <div className="container mx-auto px-6 md:px-12 pt-10 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

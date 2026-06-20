@@ -38,4 +38,3 @@ channel = "stable-25_05"
 [userenv]
 
 [userenv.shared]
-RESEND_FROM_ADDRESS = "WKRLY Group <noreply@wkrly.com>"
