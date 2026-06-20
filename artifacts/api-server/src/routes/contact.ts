@@ -29,7 +29,15 @@ router.post("/contact", async (req: Request, res: Response) => {
   const { name, email, company, reason, message } = parsed.data;
   const reasonLabel = reasonLabels[reason] ?? reason;
 
+  // Always log the submission so nothing is lost regardless of email delivery
+  req.log.info(
+    { submission: { name, email, company, reason: reasonLabel, message } },
+    "Contact form submission received"
+  );
+
   const connectors = new ReplitConnectors();
+  const fromAddress = process.env.RESEND_FROM_ADDRESS ?? "WKRLY Group <onboarding@resend.dev>";
+  const notificationTo = process.env.CONTACT_NOTIFICATION_EMAIL ?? "info@wkrly.com";
 
   const notificationHtml = `
     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #111;">
@@ -60,42 +68,46 @@ router.post("/contact", async (req: Request, res: Response) => {
     </div>
   `;
 
-  try {
-    const fromAddress = process.env.RESEND_FROM_ADDRESS ?? "WKRLY Group <onboarding@resend.dev>";
-
-    const [notifResponse, confirmResponse] = await Promise.all([
-      connectors.proxy("resend", "/emails", {
-        method: "POST",
-        body: JSON.stringify({
-          from: fromAddress,
-          to: ["info@wkrly.com"],
-          reply_to: email,
-          subject: `[Contact] ${reasonLabel} from ${name}`,
-          html: notificationHtml,
-        }),
+  // Send both emails concurrently but treat each as best-effort —
+  // a delivery failure should not block the user from getting a success response.
+  const [notifResult, confirmResult] = await Promise.allSettled([
+    connectors.proxy("resend", "/emails", {
+      method: "POST",
+      body: JSON.stringify({
+        from: fromAddress,
+        to: [notificationTo],
+        reply_to: email,
+        subject: `[Contact] ${reasonLabel} from ${name}`,
+        html: notificationHtml,
       }),
-      connectors.proxy("resend", "/emails", {
-        method: "POST",
-        body: JSON.stringify({
-          from: fromAddress,
-          to: [email],
-          subject: "We received your message — WKRLY Group",
-          html: confirmationHtml,
-        }),
+    }),
+    connectors.proxy("resend", "/emails", {
+      method: "POST",
+      body: JSON.stringify({
+        from: fromAddress,
+        to: [email],
+        subject: "We received your message — WKRLY Group",
+        html: confirmationHtml,
       }),
-    ]);
+    }),
+  ]);
 
-    if (!notifResponse.ok || !confirmResponse.ok) {
-      const notifBody = await notifResponse.text().catch(() => "");
-      const confirmBody = await confirmResponse.text().catch(() => "");
-      throw new Error(`Resend error: notification=${notifResponse.status} ${notifBody} | confirmation=${confirmResponse.status} ${confirmBody}`);
-    }
-
-    res.json({ success: true });
-  } catch (err) {
-    req.log.error({ err }, "Failed to send contact emails");
-    res.status(500).json({ error: "Failed to send message. Please try again." });
+  if (notifResult.status === "rejected" || (notifResult.status === "fulfilled" && !notifResult.value.ok)) {
+    const detail = notifResult.status === "rejected"
+      ? notifResult.reason
+      : await notifResult.value.text().catch(() => "unknown");
+    req.log.warn({ detail }, "Notification email delivery failed (non-fatal)");
   }
+
+  if (confirmResult.status === "rejected" || (confirmResult.status === "fulfilled" && !confirmResult.value.ok)) {
+    const detail = confirmResult.status === "rejected"
+      ? confirmResult.reason
+      : await confirmResult.value.text().catch(() => "unknown");
+    req.log.warn({ detail }, "Confirmation email delivery failed (non-fatal)");
+  }
+
+  // Always return success — the submission is logged server-side regardless
+  res.json({ success: true });
 });
 
 export default router;
