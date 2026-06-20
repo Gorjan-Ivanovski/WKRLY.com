@@ -12,28 +12,33 @@ export default function Careers() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="container mx-auto px-6 md:px-12 pt-20 pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl"
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">Careers</p>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.1]">
-            Build products people actually need.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-10">
-            At WKRLY Group, you'll help create software that helps people reach their goals. That's the work. It matters, and we take it seriously.
-          </p>
-          <a
-            href="#open-roles"
-            className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90"
-            data-testid="link-careers-see-roles"
+      <section className="bg-[hsl(215,65%,10%)]">
+        <div className="container mx-auto px-6 md:px-12 pt-20 pb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
-            See Open Roles
-          </a>
-        </motion.div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-primary" />
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Careers</p>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.08] text-white">
+              Build products people actually need.
+            </h1>
+            <p className="text-xl text-white/65 leading-relaxed mb-10">
+              At WKRLY Group, you'll help create software that helps people reach their goals. That's the work. It matters, and we take it seriously.
+            </p>
+            <a
+              href="#open-roles"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-white shadow-lg shadow-primary/25 transition-colors hover:bg-primary/90"
+              data-testid="link-careers-see-roles"
+            >
+              See Open Roles
+            </a>
+          </motion.div>
+        </div>
       </section>
 
       {/* Why Work Here */}

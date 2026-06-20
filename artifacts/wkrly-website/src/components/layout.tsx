@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
+
 export default function Layout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const pathname = location.pathname;
@@ -31,15 +33,20 @@ export default function Layout({ children }: { children: ReactNode }) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* Header — always dark navy */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50 py-3" : "bg-transparent py-5"
-        }`}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-[hsl(215,65%,10%)] ${
+          scrolled ? "border-b border-white/10 shadow-lg shadow-black/20" : "border-b border-transparent"
+        } py-3`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold tracking-tight" data-testid="link-logo">
-            WKRLY Group
+          <Link to="/" className="shrink-0 flex items-center" data-testid="link-logo">
+            <img
+              src={LOGO_URL}
+              alt="WKRLY Group"
+              className="h-12 w-auto"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -47,8 +54,10 @@ export default function Layout({ children }: { children: ReactNode }) {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-foreground/80"
+                className={`text-sm font-medium tracking-wide transition-colors ${
+                  pathname === link.href
+                    ? "text-[hsl(168,68%,47%)]"
+                    : "text-white/70 hover:text-white"
                 }`}
                 data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
@@ -57,7 +66,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             ))}
             <Link
               to="/contact"
-              className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="inline-flex h-9 items-center justify-center rounded-md bg-[hsl(168,68%,47%)] px-5 text-sm font-semibold text-white shadow transition-colors hover:bg-[hsl(168,68%,40%)]"
               data-testid="link-nav-contact"
             >
               Get in Touch
@@ -65,7 +74,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </nav>
 
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
@@ -74,27 +83,32 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </header>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 pb-6 flex flex-col"
+            className="fixed inset-0 z-40 bg-[hsl(215,65%,10%)] pt-24 px-6 pb-6 flex flex-col"
           >
             <nav className="flex flex-col gap-6 text-xl">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`font-medium ${pathname === link.href ? "text-primary" : "text-foreground"}`}
+                  className={`font-medium ${
+                    pathname === link.href
+                      ? "text-[hsl(168,68%,47%)]"
+                      : "text-white"
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 to="/contact"
-                className="mt-4 inline-flex h-12 items-center justify-center rounded-md bg-primary px-6 font-medium text-primary-foreground"
+                className="mt-4 inline-flex h-12 items-center justify-center rounded-md bg-[hsl(168,68%,47%)] px-6 font-semibold text-white"
               >
                 Get in Touch
               </Link>
@@ -103,32 +117,33 @@ export default function Layout({ children }: { children: ReactNode }) {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 pt-24 pb-12 flex flex-col">{children}</main>
+      <main className="flex-1 pt-[3.75rem] flex flex-col">{children}</main>
 
-      <footer className="border-t border-border/50 bg-secondary/30 pt-16 pb-8">
+      {/* Footer — dark navy */}
+      <footer className="bg-[hsl(215,65%,10%)] pt-16 pb-8 border-t border-white/10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
-              <Link to="/" className="text-2xl font-bold tracking-tight mb-4 block" data-testid="link-footer-logo">
-                WKRLY Group
+              <Link to="/" className="inline-block mb-5" data-testid="link-footer-logo">
+                <img src={LOGO_URL} alt="WKRLY Group" className="h-14 w-auto" />
               </Link>
-              <p className="text-muted-foreground max-w-sm text-lg">
+              <p className="text-white/60 max-w-sm text-base leading-relaxed">
                 Building products that help people reach further.
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">Explore</h3>
+              <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-widest">Explore</h3>
               <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                    <Link to={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to="/contact" className="text-white/50 hover:text-white transition-colors text-sm">
                     Contact
                   </Link>
                 </li>
@@ -136,25 +151,38 @@ export default function Layout({ children }: { children: ReactNode }) {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">Contact & Legal</h3>
-              <address className="not-italic text-muted-foreground mb-4 space-y-1">
-                WKRLY Group LLC<br />
-                30 N Gould St Ste N<br />
-                Sheridan, WY 82801<br />
-                United States
+              <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-widest">Contact & Legal</h3>
+              <address className="not-italic text-white/50 mb-5 space-y-1 text-sm leading-relaxed">
+                <p className="text-white/70 font-medium">WKRLY Group LLC</p>
+                <p>30 N Gould St Ste N</p>
+                <p>Sheridan, WY 82801</p>
+                <p>United States</p>
               </address>
-              <div className="text-muted-foreground space-y-1 mb-6">
+              <div className="text-white/50 space-y-1 mb-6 text-sm">
                 <p>(307) 400-5868</p>
                 <p>info@wkrly.com</p>
               </div>
-              <ul className="space-y-3 text-sm">
-                <li><Link to="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/terms-of-use" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Use</Link></li>
-                <li><Link to="/cookie-policy" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link></li>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link to="/privacy-policy" className="text-white/50 hover:text-white transition-colors">Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link to="/terms-of-use" className="text-white/50 hover:text-white transition-colors">Terms of Use</Link>
+                </li>
+                <li>
+                  <Link to="/cookie-policy" className="text-white/50 hover:text-white transition-colors">Cookie Policy</Link>
+                </li>
               </ul>
             </div>
           </div>
-          <div className="text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center border-t border-border/50 pt-8">
+
+          {/* Teal divider */}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-px flex-1 bg-white/10" />
+            <div className="h-px w-16 bg-[hsl(168,68%,47%)]" />
+          </div>
+
+          <div className="text-sm text-white/40 flex flex-col md:flex-row justify-between items-center">
             <p>&copy; 2026 WKRLY Group LLC. All rights reserved.</p>
           </div>
         </div>

@@ -12,21 +12,26 @@ export default function About() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="container mx-auto px-6 md:px-12 pt-20 pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl"
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">About</p>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.1]">
-            We exist to help people reach further.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            WKRLY Group is a product company built on a simple belief: the right tool, at the right moment, can change the trajectory of someone's work — and their life.
-          </p>
-        </motion.div>
+      <section className="bg-[hsl(215,65%,10%)]">
+        <div className="container mx-auto px-6 md:px-12 pt-20 pb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-primary" />
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">About</p>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.08] text-white">
+              We exist to help people reach further.
+            </h1>
+            <p className="text-xl text-white/65 leading-relaxed">
+              WKRLY Group is a product company built on a simple belief: the right tool, at the right moment, can change the trajectory of someone's work — and their life.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Story */}

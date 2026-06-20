@@ -13,21 +13,26 @@ export default function WhatWeDo() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="container mx-auto px-6 md:px-12 pt-20 pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl"
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">What We Do</p>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.1]">
-            We build, launch, and grow products that help people get ahead.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            WKRLY Group is part product studio, part operator. We take ideas from a blank page to a live, growing product — and we run them for the long term.
-          </p>
-        </motion.div>
+      <section className="bg-[hsl(215,65%,10%)]">
+        <div className="container mx-auto px-6 md:px-12 pt-20 pb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-primary" />
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.08] text-white">
+              We build, launch, and grow products that help people get ahead.
+            </h1>
+            <p className="text-xl text-white/65 leading-relaxed">
+              WKRLY Group is part product studio, part operator. We take ideas from a blank page to a live, growing product — and we run them for the long term.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* What We Make */}

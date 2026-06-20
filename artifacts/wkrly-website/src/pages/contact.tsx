@@ -53,21 +53,26 @@ export default function Contact() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="container mx-auto px-6 md:px-12 pt-20 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-2xl"
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">Contact</p>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
-            Let's talk.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
-          </p>
-        </motion.div>
+      <section className="bg-[hsl(215,65%,10%)]">
+        <div className="container mx-auto px-6 md:px-12 pt-20 pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-2xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-primary" />
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Contact</p>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-[1.08] text-white">
+              Let's talk.
+            </h1>
+            <p className="text-xl text-white/65 leading-relaxed">
+              Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Form + Info */}

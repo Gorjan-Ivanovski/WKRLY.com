@@ -12,21 +12,26 @@ export default function Portfolio() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="container mx-auto px-6 md:px-12 pt-20 pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl"
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-6">Portfolio</p>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.1]">
-            A growing portfolio, one mission.
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We're building a deliberate collection of SaaS products and digital properties — each designed to help people reach their professional goals.
-          </p>
-        </motion.div>
+      <section className="bg-[hsl(215,65%,10%)]">
+        <div className="container mx-auto px-6 md:px-12 pt-20 pb-28">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-primary" />
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Portfolio</p>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.08] text-white">
+              A growing portfolio, one mission.
+            </h1>
+            <p className="text-xl text-white/65 leading-relaxed">
+              We're building a deliberate collection of SaaS products and digital properties — each designed to help people reach their professional goals.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Philosophy */}
