@@ -1,23 +1,22 @@
 ---
-name: WKRLY logo sizing
-description: How the logo image is loaded and sized in the header/footer, and why the original file must be used.
+name: WKRLY logo setup
+description: How the logo icon is built, sized, and rendered across header/footer.
 ---
 
-## Rule
-Use the **original** logo PNG (with dark navy background) imported via the `@assets` Vite alias, NOT the background-removed `public/logo.png`.
-
-**Why:** The background-removed version retains the full 1024×1024 canvas with heavy transparent padding, so the circuit-leaf graphic only occupies ~50% of the declared CSS height. At h-20 the effective icon is only ~40px — too small. The original dark-navy-background version fills the declared size fully, and since the header/footer share the same dark navy color, the background blends seamlessly.
-
-## Import
-```ts
-import logoSrc from "@assets/ChatGPT_Image_Jun_10,_2026,_06_34_04_PM_1781934314956.png";
-```
-(`@assets` alias → `/attached_assets/` in vite config)
+## Current setup
+- **Icon**: hand-coded SVG at `artifacts/wkrly-website/public/circuit-leaf.svg`
+  - 200×205 viewBox, teal color `#27C9A9`, transparent background
+  - Elements: diamond apex (5 nodes), dual antler branches, left/right main lobes with inner traces, lower lobes, bottom stem extensions
+  - Reference original image at `attached_assets/image_1781936323962.png`
+- **Text**: HTML "WKRLY" (white, bold, tracking-[0.2em]) + "— GROUP —" (teal, tracking-[0.28em]) rendered next to the icon in `LogoMark` component inside `layout.tsx`
+- **URL**: loaded via `${import.meta.env.BASE_URL}circuit-leaf.svg` (not imported — public folder)
 
 ## Sizes
-- Header (`md`): `h-32 w-auto` (128px) — total header height ~160px
-- Footer (`lg`): `h-40 w-auto` (160px)
-- Mobile menu (`sm`): `h-20 w-auto` (80px)
+- Header (`md`): icon `h-12`, name `text-[1.1rem]`, group `text-[0.58rem]`
+- Footer (`lg`): icon `h-16`, name `text-2xl`, group `text-[0.72rem]`
+- Mobile (`sm`): icon `h-9`, name `text-sm`, group `text-[0.5rem]`
 
 ## main pt offset
-`pt-40` (160px) on `<main>` matches the header height (h-32 logo + py-4 padding × 2).
+`pt-20` (80px) on `<main>` matches header height (h-12 icon + py-4 × 2 ≈ 80px).
+
+**Why:** Do NOT go back to the PNG-based logo. The original PNG (`logo.png`, background-removed) has heavy transparent canvas padding that makes the visible graphic much smaller than the declared CSS height. The SVG avoids this completely.
