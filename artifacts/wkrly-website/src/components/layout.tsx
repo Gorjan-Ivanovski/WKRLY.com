@@ -3,8 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CookieBanner from "./cookie-banner";
-
-const ICON_URL = `${import.meta.env.BASE_URL}circuit-leaf.svg`;
+import circuitLeafSrc from "@assets/image_1781936690930.png";
 
 function LogoMark({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const iconH   = size === "sm" ? "h-9"  : size === "lg" ? "h-16" : "h-12";
@@ -15,7 +14,7 @@ function LogoMark({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   return (
     <div className="flex items-center gap-3">
       <img
-        src={ICON_URL}
+        src={circuitLeafSrc}
         alt=""
         aria-hidden
         className={`${iconH} w-auto`}
