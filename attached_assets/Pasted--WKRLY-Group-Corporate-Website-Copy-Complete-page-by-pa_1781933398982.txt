@@ -1,0 +1,589 @@
+# WKRLY Group — Corporate Website Copy
+
+*Complete page-by-page content draft. Brand voice: confident, clear, modern, human. No specific product brands referenced (per brief). Items in [brackets] are placeholders for facts to confirm before publishing.*
+
+---
+
+## Site Map
+
+```
+Home
+About
+What We Do
+Portfolio
+Careers
+Insights
+Contact
+─────────────
+Privacy Policy   (footer)
+Terms of Use     (footer)
+Cookie Policy    (footer)
+```
+
+**Primary navigation:** Home · About · What We Do · Portfolio · Careers · Insights · Contact
+
+**Footer navigation:** About · What We Do · Careers · Insights · Contact · Privacy Policy · Terms of Use · Cookie Policy
+
+---
+
+## Global Elements
+
+### Header
+
+- **Logo:** WKRLY Group
+- **Nav links:** About · What We Do · Portfolio · Careers · Insights
+- **CTA button:** Get in Touch
+
+### Footer
+
+**WKRLY Group LLC**
+30 N Gould St Ste N
+Sheridan, WY 82801
+United States
+
+(307) 400-5868 · info@wkrly.com
+
+**Explore:** About · What We Do · Portfolio · Careers · Insights · Contact
+**Legal:** Privacy Policy · Terms of Use · Cookie Policy
+
+**Footer tagline:** *Building products that help people reach further.*
+
+© [Year] WKRLY Group LLC. All rights reserved.
+
+---
+---
+
+# 1. Home
+
+**SEO title:** WKRLY Group — Digital Products That Help People Reach Their Goals
+**Meta description:** WKRLY Group is a product company that builds and launches SaaS products and digital properties designed to help professionals achieve their goals.
+
+### Hero
+
+**Headline:** Software for people who are going somewhere.
+
+**Subhead:** WKRLY Group builds and launches digital products that help people make real progress toward their professional goals — one tool, one win, at a time.
+
+**Primary CTA:** Explore What We Do
+**Secondary CTA:** See Our Portfolio
+
+*Alternate headlines (choose one):*
+- *We build the tools that move careers forward.*
+- *Products built for ambition.*
+- *We turn everyday work into measurable progress.*
+
+### Intro statement
+
+We're a product company with a single thesis: when people have better tools, they do better work — and better work changes lives. WKRLY Group develops, launches, and operates a growing portfolio of SaaS products and digital properties, each built to help people set meaningful goals and actually reach them.
+
+### What we do (three-up)
+
+**We build products.**
+We design and ship SaaS products and digital experiences from the ground up — researched, validated, and crafted to solve a real problem.
+
+**We launch them.**
+Building is only half the work. We bring products to market with the positioning, infrastructure, and momentum they need to find their audience.
+
+**We grow them.**
+Once a product is live, we operate it for the long term — listening, iterating, and compounding small improvements into lasting value.
+
+**CTA:** Learn how we work →
+
+### The throughline
+
+Everything we make shares one purpose: helping people achieve their professional targets and goals. Whether the goal is to work smarter, learn faster, grow a career, or build something of their own, our products are designed to turn intention into outcomes.
+
+### Our approach (four steps, condensed)
+
+1. **Find the problem worth solving.** We start with people, not features.
+2. **Validate before we build.** Evidence beats assumptions.
+3. **Build with craft.** Reliable, intuitive, genuinely useful software.
+4. **Launch and grow.** We ship, learn, and keep going.
+
+**CTA:** See our approach in detail →
+
+### Why WKRLY
+
+- **Focused mission.** Every product we touch is built to help people get ahead.
+- **Operator mindset.** We don't just launch and leave — we run our products for the long haul.
+- **Built to last.** We optimize for durable value, not short-term spikes.
+- **Quality first.** We'd rather ship one product we're proud of than ten we're not.
+
+### Closing CTA band
+
+**Headline:** Have an idea, a partnership, or a question?
+**Body:** Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
+**CTA:** Get in Touch
+
+---
+---
+
+# 2. About
+
+**SEO title:** About WKRLY Group — A Product Company Built Around Ambition
+**Meta description:** Learn about WKRLY Group, a digital product company developing and launching SaaS products that help people achieve their professional goals.
+
+### Page hero
+
+**Headline:** We exist to help people reach further.
+
+**Subhead:** WKRLY Group is a product company built on a simple belief: the right tool, at the right moment, can change the trajectory of someone's work — and their life.
+
+### Our story
+
+WKRLY Group was founded to build software that takes ambition seriously. We saw a gap between what people want to achieve in their professional lives and the tools available to help them get there. Too many products are built to capture attention. We set out to build products that create progress.
+
+Today, we develop, launch, and operate a portfolio of SaaS products and digital properties — each one designed around a single question: *Does this genuinely help someone move closer to their goals?* If the answer is yes, we build it. If it isn't, we don't.
+
+We're a company of builders, designers, researchers, and operators who care about craft and outcomes in equal measure. We move quickly, we hold ourselves to a high standard, and we measure our success by the success of the people who use what we make.
+
+*[Optional facts to add: year founded, founding team, headquarters/remote model, company size.]*
+
+### Our mission
+
+To build digital products that help people achieve their professional goals — and to make meaningful progress feel within reach for everyone who uses them.
+
+### Our vision
+
+A world where ambitious people are never held back by their tools. Where setting a goal and reaching it is supported by software that's genuinely on their side.
+
+### What we believe
+
+**People come first.**
+Every decision starts with the person on the other side of the screen. Their goals are the goals.
+
+**Progress over noise.**
+We don't build for engagement metrics or vanity. We build to help people do, finish, and grow.
+
+**Evidence over opinion.**
+We test our assumptions, listen to real users, and let what we learn shape what we build.
+
+**Craft is non-negotiable.**
+Reliable, thoughtful, well-made software is a sign of respect for the people who use it.
+
+**We're here for the long game.**
+We build products we intend to operate and improve for years, not abandon after launch.
+
+**Ownership at every level.**
+We act like owners — accountable, resourceful, and invested in the outcome.
+
+### Our values in practice
+
+- We ship, then we listen, then we improve.
+- We say no to good ideas so we can do great work on the right ones.
+- We treat our users' time, attention, and trust as things to be earned.
+- We hire for character and curiosity, and we give people room to do their best work.
+
+### Closing CTA
+
+**Headline:** Want to build with us — or for us?
+**CTA buttons:** See Open Roles · Get in Touch
+
+---
+---
+
+# 3. What We Do
+
+**SEO title:** What We Do — How WKRLY Group Builds and Launches Products
+**Meta description:** WKRLY Group develops, launches, and operates SaaS products and digital properties built to help people achieve their professional goals.
+
+### Page hero
+
+**Headline:** We build, launch, and grow products that help people get ahead.
+
+**Subhead:** WKRLY Group is part product studio, part operator. We take ideas from a blank page to a live, growing product — and we run them for the long term.
+
+### What we make
+
+**SaaS products.**
+Subscription software built to solve real, recurring problems for professionals and the teams they work in. Tools people return to because they make work measurably better.
+
+**Digital properties.**
+Beyond core software, we build the digital experiences — platforms, content, and services — that help our products reach and serve their audiences.
+
+**A focused portfolio.**
+Rather than chasing every opportunity, we build a deliberate portfolio of products that share a common purpose: helping people achieve their professional goals.
+
+### How we work
+
+**1. Discover**
+We start by understanding people and problems. Through research, conversation, and analysis, we find the goals people are struggling to reach and the friction standing in their way.
+
+**2. Validate**
+Before we commit to building, we test our thinking. We prototype, we put ideas in front of real people, and we look for evidence that a product is worth building — and worth using.
+
+**3. Design & Build**
+We design experiences that are intuitive and humane, and we engineer software that's reliable, secure, and built to scale. Craft shows up in the details, so we sweat them.
+
+**4. Launch**
+We bring products to market with clear positioning, the right infrastructure, and the momentum to find an audience. A great launch is a beginning, not an event.
+
+**5. Grow & Operate**
+Once a product is live, the real work begins. We measure, learn, and iterate — compounding small, consistent improvements into durable value for the people who rely on us.
+
+### What guides every build
+
+- **Real problems only.** If it doesn't help someone make progress, we don't build it.
+- **Speed with judgment.** We move fast, but never past the things that matter.
+- **Built to be trusted.** Security, reliability, and privacy are foundational, not features.
+- **Designed to last.** We build for the long term, not the next spike.
+
+### Who our products serve
+
+The people who use what we build share one thing in common: they have goals, and they're serious about reaching them. They might be professionals sharpening their edge, teams trying to do their best work, or individuals building something of their own. Whoever they are, our job is to help them get there faster, with less friction and more confidence.
+
+### Closing CTA
+
+**Headline:** Curious about what we're building next?
+**CTA:** Explore Our Portfolio · Get in Touch
+
+---
+---
+
+# 4. Portfolio
+
+**SEO title:** Portfolio — The Products WKRLY Group Is Building
+**Meta description:** A look at WKRLY Group's growing portfolio of SaaS products and digital properties built to help people achieve their professional goals.
+
+### Page hero
+
+**Headline:** A growing portfolio, one mission.
+
+**Subhead:** We're building a deliberate collection of SaaS products and digital properties — each designed to help people reach their professional goals.
+
+### Our portfolio philosophy
+
+We don't build products in isolation. Each one is a considered addition to a portfolio united by a single purpose: helping people make real progress in their working lives. We'd rather build a small number of products we believe in deeply than a long list we can't stand behind.
+
+Our products span different problems and audiences, but they answer to the same standard — they have to genuinely help someone do, finish, learn, or grow.
+
+### What you can expect from a WKRLY product
+
+**Built around a real goal.**
+Every product starts with a specific outcome someone is trying to reach, and works backward from there.
+
+**Designed to be used.**
+Intuitive, fast, and dependable — software that gets out of the way so people can do their best work.
+
+**Trustworthy by design.**
+We treat data, privacy, and security as commitments, not checkboxes.
+
+**Continuously improved.**
+Our products get better over time, shaped by the people who use them.
+
+### Coming soon
+
+We're heads-down building, and we're not ready to announce specific products just yet. When we are, you'll find them here first.
+
+**CTA:** Want to be the first to know? Get in Touch
+
+*[Note: This page is structured to scale. As products launch, each can become a card/tile linking to a dedicated product page or external site.]*
+
+---
+---
+
+# 5. Careers
+
+**SEO title:** Careers at WKRLY Group — Build Products That Matter
+**Meta description:** Join WKRLY Group and help build SaaS products that help people achieve their professional goals. Explore our culture, values, and open roles.
+
+### Page hero
+
+**Headline:** Build products people actually need.
+
+**Subhead:** At WKRLY Group, you'll help create software that helps people reach their goals. That's the work. It matters, and we take it seriously.
+
+**CTA:** See Open Roles
+
+### Why work here
+
+**Your work has a clear purpose.**
+Everything we build is meant to help someone get ahead. You'll see the impact of your work in the progress of real people.
+
+**You'll own real outcomes.**
+We're a company of operators. You'll have the autonomy to make decisions and the accountability that comes with it.
+
+**You'll do your best work.**
+We protect focus, value craft, and give people the room and trust to be excellent at what they do.
+
+**You'll grow.**
+We build products that help people advance — and we hold ourselves to the same standard. Your development matters to us.
+
+### How we work
+
+- **Small teams, big ownership.** We keep teams lean so individuals can have outsized impact.
+- **Bias to ship.** We learn by putting real things in front of real people.
+- **High standards, low ego.** We push each other to be better and leave the politics out of it.
+- **Long-term thinking.** We make decisions we'll be proud of years from now.
+
+### Who we're looking for
+
+We hire builders — people who are curious, accountable, and genuinely care about the quality of what they make. You'll fit in here if you're driven by outcomes, comfortable with ambiguity, and energized by the idea of helping people reach their goals through better software.
+
+We welcome talented people across product, engineering, design, research, growth, and operations.
+
+### Open roles
+
+We're always interested in meeting exceptional people.
+
+We don't have specific roles posted right now, but we're growing. If you believe you'd be a great addition to WKRLY Group, introduce yourself — we read every message.
+
+**CTA:** Get in Touch
+
+### Equal opportunity statement
+
+WKRLY Group LLC is an equal opportunity employer. We are committed to building a team that reflects a range of backgrounds, perspectives, and experiences, and we do not discriminate on the basis of race, color, religion, sex, sexual orientation, gender identity, national origin, age, disability, veteran status, or any other characteristic protected by applicable law.
+
+---
+---
+
+# 6. Contact
+
+**SEO title:** Contact WKRLY Group
+**Meta description:** Get in touch with WKRLY Group LLC. Reach our team for partnerships, careers, press, or general enquiries.
+
+### Page hero
+
+**Headline:** Let's talk.
+
+**Subhead:** Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
+
+### Contact form
+
+**Fields:**
+- Name *(required)*
+- Email *(required)*
+- Company *(optional)*
+- I'm reaching out about… *(dropdown: Partnership · Careers · Press & Media · General Enquiry)*
+- Message *(required)*
+- [ ] I agree to the [Privacy Policy] *(checkbox, required)*
+
+**Submit button:** Send Message
+**Confirmation message:** Thanks for reaching out. We've received your message and will be in touch soon.
+
+### Direct contact
+
+**Email:** info@wkrly.com
+**Phone:** (307) 400-5868
+
+### Office
+
+**WKRLY Group LLC**
+30 N Gould St Ste N
+Sheridan, WY 82801
+United States
+
+*[Optional: embed map.]*
+
+---
+---
+
+# 7. Insights
+
+**SEO title:** Insights — Ideas on Products, Work, and Progress from WKRLY Group
+**Meta description:** Thinking from the WKRLY Group team on building products, doing better work, and helping people reach their goals.
+
+### Page hero
+
+**Headline:** Ideas worth sharing.
+
+**Subhead:** Thoughts from our team on building products, the future of work, and what it really takes to help people reach their goals.
+
+### Intro
+
+We learn a lot building products for ambitious people — about software, about work, and about what actually helps someone make progress. This is where we share some of it.
+
+### Article list (placeholder structure)
+
+*[Each article card: Title · Short excerpt · Category · Date · Read more →]*
+
+**Suggested launch categories:**
+- Building Products
+- The Future of Work
+- Goals & Progress
+- Behind the Build *(company/process posts)*
+
+**Starter article ideas (for when you're ready to publish):**
+1. *Why we only build products that help people make progress.*
+2. *Build, launch, grow: how we think about the life of a product.*
+3. *The difference between software that captures attention and software that creates results.*
+4. *What we look for before we commit to building anything.*
+5. *Operating for the long term in a world built for quick wins.*
+
+**Empty state (before first post):** We're just getting started. Our first pieces are on the way — check back soon, or get in touch to stay in the loop.
+
+---
+---
+
+# 8. Privacy Policy
+
+> **Important:** This is a starting template written in plain, professional language. It is **not legal advice.** Before publishing, have it reviewed by a qualified attorney and tailored to your actual data practices and the laws that apply to you (for example, US state privacy laws such as the CCPA/CPRA, and the GDPR if you have users in the EU/UK).
+
+**Last updated:** [Date]
+
+### Introduction
+
+This Privacy Policy explains how WKRLY Group LLC ("WKRLY Group," "we," "us," or "our") collects, uses, and protects information when you visit our website or interact with us. By using our website, you agree to the practices described in this policy.
+
+### Information we collect
+
+**Information you provide to us.** When you contact us, apply for a role, or otherwise communicate with us, we may collect information such as your name, email address, company, and the contents of your message.
+
+**Information we collect automatically.** When you visit our website, we may automatically collect technical information such as your IP address, browser type, device information, pages viewed, and how you arrived at and navigate our site. We collect this information using cookies and similar technologies (see our Cookie Policy).
+
+### How we use information
+
+We use the information we collect to:
+- Respond to your enquiries and communicate with you;
+- Review and process career applications;
+- Operate, maintain, and improve our website;
+- Understand how our website is used;
+- Protect the security and integrity of our website and business; and
+- Comply with our legal obligations.
+
+### How we share information
+
+We do not sell your personal information. We may share information with:
+- **Service providers** who help us operate our website and business (for example, hosting, analytics, and email providers), under appropriate confidentiality obligations;
+- **Legal and regulatory authorities** where required by law or to protect our rights; and
+- **Successors** in the event of a merger, acquisition, or sale of assets.
+
+### Data retention
+
+We retain personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required or permitted by law.
+
+### Your rights
+
+Depending on where you live, you may have rights regarding your personal information, including the right to access, correct, delete, or restrict the use of your information, and to object to certain processing. To exercise any of these rights, contact us at info@wkrly.com.
+
+### Data security
+
+We take reasonable technical and organizational measures to protect personal information. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.
+
+### Children's privacy
+
+Our website is not directed to children under [13/16], and we do not knowingly collect personal information from them.
+
+### International users
+
+WKRLY Group LLC is based in the United States. If you access our website from outside the United States, you understand that your information may be processed in the United States.
+
+### Changes to this policy
+
+We may update this Privacy Policy from time to time. We will post the updated version on this page and revise the "Last updated" date above.
+
+### Contact us
+
+If you have questions about this Privacy Policy, contact us at:
+
+**WKRLY Group LLC**
+30 N Gould St Ste N
+Sheridan, WY 82801, United States
+info@wkrly.com · (307) 400-5868
+
+---
+---
+
+# 9. Terms of Use
+
+> **Important:** This is a starting template, **not legal advice.** Have it reviewed and adapted by a qualified attorney before publishing.
+
+**Last updated:** [Date]
+
+### Acceptance of terms
+
+These Terms of Use ("Terms") govern your access to and use of the website operated by WKRLY Group LLC ("WKRLY Group," "we," "us," or "our"). By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please do not use our website.
+
+### Use of our website
+
+You may use our website for lawful purposes only. You agree not to:
+- Use the website in any way that violates applicable law or regulation;
+- Attempt to gain unauthorized access to any part of the website or its systems;
+- Interfere with or disrupt the operation of the website; or
+- Use the website to transmit harmful, fraudulent, or unlawful content.
+
+### Intellectual property
+
+The website and its content — including text, graphics, logos, and design — are owned by or licensed to WKRLY Group LLC and are protected by intellectual property laws. You may not copy, reproduce, distribute, or create derivative works from our content without our prior written permission.
+
+### Third-party links
+
+Our website may contain links to third-party websites. We are not responsible for the content, policies, or practices of any third-party sites, and links do not imply endorsement.
+
+### Disclaimers
+
+Our website is provided "as is" and "as available" without warranties of any kind, whether express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the website will be uninterrupted, error-free, or secure.
+
+### Limitation of liability
+
+To the fullest extent permitted by law, WKRLY Group LLC will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of, or inability to use, our website.
+
+### Indemnification
+
+You agree to indemnify and hold harmless WKRLY Group LLC and its officers, employees, and affiliates from any claims, damages, or expenses arising out of your use of the website or your violation of these Terms.
+
+### Changes to these terms
+
+We may update these Terms from time to time. Continued use of the website after changes are posted constitutes acceptance of the updated Terms.
+
+### Governing law
+
+These Terms are governed by the laws of the State of Wyoming, United States, without regard to its conflict of law principles.
+
+### Contact us
+
+Questions about these Terms can be directed to:
+
+**WKRLY Group LLC**
+30 N Gould St Ste N
+Sheridan, WY 82801, United States
+info@wkrly.com · (307) 400-5868
+
+---
+---
+
+# 10. Cookie Policy
+
+> **Important:** Template only, **not legal advice.** Adapt to the actual cookies and trackers your site uses, and have it reviewed by an attorney.
+
+**Last updated:** [Date]
+
+### What are cookies?
+
+Cookies are small text files placed on your device when you visit a website. They help websites function, remember your preferences, and understand how the site is used.
+
+### How we use cookies
+
+WKRLY Group LLC uses cookies and similar technologies to:
+- **Operate our website** (essential cookies required for the site to function);
+- **Understand usage** (analytics cookies that help us see how visitors interact with our site); and
+- **Improve your experience** (preference cookies that remember your settings).
+
+### Managing cookies
+
+Most browsers let you control cookies through their settings, including blocking or deleting them. Disabling certain cookies may affect how our website functions. Where required, we will request your consent before placing non-essential cookies.
+
+### Changes to this policy
+
+We may update this Cookie Policy from time to time and will post any changes on this page.
+
+### Contact us
+
+Questions about our use of cookies can be sent to info@wkrly.com.
+
+---
+---
+
+## Appendix: Reusable Copy Snippets
+
+**One-line descriptor (for bios, directories, social):**
+WKRLY Group builds and launches SaaS products and digital properties that help people achieve their professional goals.
+
+**Boilerplate (for press / footers / "About" blurbs):**
+WKRLY Group LLC is a product company that develops, launches, and operates SaaS products and digital properties designed to help people reach their professional goals. Based in Sheridan, Wyoming, WKRLY Group builds a focused portfolio of digital products united by a single purpose: turning ambition into measurable progress.
+
+**Meta description (homepage, ~155 chars):**
+WKRLY Group builds and launches SaaS products and digital properties designed to help people achieve their professional goals.
+
+**Social bio (~150 chars):**
+We build products that help people reach their goals. A portfolio of SaaS products & digital properties from WKRLY Group LLC.
