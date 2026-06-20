@@ -101,7 +101,7 @@ export default function Contact() {
       </section>
 
       {/* Form + Info */}
-      <section className="pb-32">
+      <section className="pt-16 pb-32">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 max-w-5xl">
             {/* Form */}
