@@ -28,14 +28,14 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/what-we-do"
+              to="/what-we-do"
               className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90"
               data-testid="link-hero-what-we-do"
             >
               Explore What We Do
             </Link>
             <Link
-              href="/portfolio"
+              to="/portfolio"
               className="inline-flex h-12 items-center justify-center rounded-md border border-border px-8 font-semibold text-foreground transition-colors hover:bg-secondary"
               data-testid="link-hero-portfolio"
             >
@@ -101,7 +101,7 @@ export default function Home() {
         </div>
         <motion.div {...fadeInUp}>
           <Link
-            href="/what-we-do"
+            to="/what-we-do"
             className="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary/80 transition-colors text-lg"
             data-testid="link-learn-how-we-work"
           >
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
         <motion.div {...fadeInUp} className="mt-12">
           <Link
-            href="/what-we-do"
+            to="/what-we-do"
             className="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary/80 transition-colors text-lg"
             data-testid="link-approach-detail"
           >
@@ -207,7 +207,7 @@ export default function Home() {
               Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
             </p>
             <Link
-              href="/contact"
+              to="/contact"
               className="inline-flex h-14 items-center justify-center rounded-md bg-primary px-10 font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90 text-lg"
               data-testid="link-cta-get-in-touch"
             >

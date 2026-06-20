@@ -167,14 +167,14 @@ export default function About() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Link
-                href="/careers"
+                to="/careers"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-background/30 px-8 font-semibold text-background transition-colors hover:bg-background/10"
                 data-testid="link-about-see-roles"
               >
                 See Open Roles
               </Link>
               <Link
-                href="/contact"
+                to="/contact"
                 className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 data-testid="link-about-get-in-touch"
               >

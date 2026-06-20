@@ -141,7 +141,7 @@ export default function Careers() {
               We don't have specific roles posted right now, but we're growing. If you believe you'd be a great addition to WKRLY Group, introduce yourself — we read every message.
             </p>
             <Link
-              href="/contact"
+              to="/contact"
               className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-7 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               data-testid="link-careers-contact"
             >

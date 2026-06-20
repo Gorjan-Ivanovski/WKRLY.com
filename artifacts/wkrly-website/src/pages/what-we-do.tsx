@@ -174,14 +174,14 @@ export default function WhatWeDo() {
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Link
-                href="/portfolio"
+                to="/portfolio"
                 className="inline-flex items-center gap-2 h-12 justify-center rounded-md border border-background/30 px-8 font-semibold text-background transition-colors hover:bg-background/10"
                 data-testid="link-wwd-portfolio"
               >
                 Explore Our Portfolio <ArrowRight size={18} />
               </Link>
               <Link
-                href="/contact"
+                to="/contact"
                 className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 data-testid="link-wwd-contact"
               >

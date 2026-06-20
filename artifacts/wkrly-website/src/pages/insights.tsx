@@ -68,7 +68,7 @@ export default function Insights() {
               Our first pieces are on the way — check back soon, or get in touch to stay in the loop.
             </p>
             <Link
-              href="/contact"
+              to="/contact"
               className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-7 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               data-testid="link-insights-get-in-touch"
             >

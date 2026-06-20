@@ -109,7 +109,7 @@ export default function Portfolio() {
               We're heads-down building, and we're not ready to announce specific products just yet. When we are, you'll find them here first.
             </p>
             <Link
-              href="/contact"
+              to="/contact"
               className="inline-flex h-12 items-center justify-center rounded-md bg-background text-foreground px-8 font-semibold transition-colors hover:bg-background/90"
               data-testid="link-portfolio-get-in-touch"
             >
