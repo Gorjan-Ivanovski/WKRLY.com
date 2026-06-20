@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,33 +17,34 @@ import CookiePolicy from "@/pages/cookie-policy";
 
 const queryClient = new QueryClient();
 
-function Router() {
+function AppRoutes() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/what-we-do" component={WhatWeDo} />
-      <Route path="/portfolio" component={Portfolio} />
-      <Route path="/careers" component={Careers} />
-      <Route path="/insights" component={Insights} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-of-use" component={TermsOfUse} />
-      <Route path="/cookie-policy" component={CookiePolicy} />
-      <Route component={NotFound} />
-    </Switch>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/what-we-do" element={<WhatWeDo />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/insights" element={<Insights />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 }
 
 function App() {
+  const baseName = import.meta.env.BASE_URL.replace(/\/$/, "");
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Layout>
-            <Router />
-          </Layout>
-        </WouterRouter>
+        <BrowserRouter basename={baseName}>
+          <AppRoutes />
+        </BrowserRouter>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>

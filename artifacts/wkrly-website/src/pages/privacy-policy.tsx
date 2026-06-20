@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 
 export default function PrivacyPolicy() {
   return (
@@ -115,8 +115,8 @@ export default function PrivacyPolicy() {
           </div>
 
           <div className="mt-16 pt-8 border-t border-border/50 flex gap-6 text-sm">
-            <Link href="/terms-of-use" className="text-primary hover:underline">Terms of Use</Link>
-            <Link href="/cookie-policy" className="text-primary hover:underline">Cookie Policy</Link>
+            <Link to="/terms-of-use" className="text-primary hover:underline">Terms of Use</Link>
+            <Link to="/cookie-policy" className="text-primary hover:underline">Cookie Policy</Link>
           </div>
         </motion.div>
       </section>

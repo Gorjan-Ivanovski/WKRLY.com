@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -208,7 +208,7 @@ export default function Contact() {
                           <div className="space-y-1 leading-none">
                             <FormLabel className="font-normal text-muted-foreground cursor-pointer">
                               I agree to the{" "}
-                              <Link href="/privacy-policy" className="text-primary hover:underline">
+                              <Link to="/privacy-policy" className="text-primary hover:underline">
                                 Privacy Policy
                               </Link>
                             </FormLabel>

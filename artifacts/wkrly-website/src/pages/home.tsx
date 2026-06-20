@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const fadeInUp = {

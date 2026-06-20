@@ -1,10 +1,11 @@
 import { ReactNode, useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const [location] = useLocation();
+  const location = useLocation();
+  const pathname = location.pathname;
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -18,7 +19,8 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [location]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const navLinks = [
     { label: "About", href: "/about" },
@@ -36,7 +38,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight" data-testid="link-logo">
+          <Link to="/" className="text-xl font-bold tracking-tight" data-testid="link-logo">
             WKRLY Group
           </Link>
 
@@ -44,9 +46,9 @@ export default function Layout({ children }: { children: ReactNode }) {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location === link.href ? "text-primary" : "text-foreground/80"
+                  pathname === link.href ? "text-primary" : "text-foreground/80"
                 }`}
                 data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
@@ -54,7 +56,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               </Link>
             ))}
             <Link
-              href="/contact"
+              to="/contact"
               className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               data-testid="link-nav-contact"
             >
@@ -84,14 +86,14 @@ export default function Layout({ children }: { children: ReactNode }) {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
-                  className={`font-medium ${location === link.href ? "text-primary" : "text-foreground"}`}
+                  to={link.href}
+                  className={`font-medium ${pathname === link.href ? "text-primary" : "text-foreground"}`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
-                href="/contact"
+                to="/contact"
                 className="mt-4 inline-flex h-12 items-center justify-center rounded-md bg-primary px-6 font-medium text-primary-foreground"
               >
                 Get in Touch
@@ -107,26 +109,26 @@ export default function Layout({ children }: { children: ReactNode }) {
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
-              <Link href="/" className="text-2xl font-bold tracking-tight mb-4 block" data-testid="link-footer-logo">
+              <Link to="/" className="text-2xl font-bold tracking-tight mb-4 block" data-testid="link-footer-logo">
                 WKRLY Group
               </Link>
               <p className="text-muted-foreground max-w-sm text-lg">
                 Building products that help people reach further.
               </p>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Explore</h3>
               <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-muted-foreground hover:text-foreground transition-colors">
+                    <Link to={link.href} className="text-muted-foreground hover:text-foreground transition-colors">
                       {link.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -146,9 +148,9 @@ export default function Layout({ children }: { children: ReactNode }) {
                 <p>info@wkrly.com</p>
               </div>
               <ul className="space-y-3 text-sm">
-                <li><Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms-of-use" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Use</Link></li>
-                <li><Link href="/cookie-policy" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link></li>
+                <li><Link to="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms-of-use" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Use</Link></li>
+                <li><Link to="/cookie-policy" className="text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</Link></li>
               </ul>
             </div>
           </div>

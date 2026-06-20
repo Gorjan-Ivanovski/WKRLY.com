@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
