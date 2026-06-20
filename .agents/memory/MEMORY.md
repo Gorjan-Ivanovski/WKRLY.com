@@ -1,0 +1,1 @@
+- [WKRLY logo sizing](wkrly-logo.md) — original logo PNG (dark bg) imported via @assets alias; must stay large (h-32 header) because transparent-bg version has heavy padding hiding the circuit detail.

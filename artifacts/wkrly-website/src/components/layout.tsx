@@ -3,43 +3,21 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CookieBanner from "./cookie-banner";
-
-const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
+import logoSrc from "@assets/ChatGPT_Image_Jun_10,_2026,_06_34_04_PM_1781934314956.png";
 
 function LogoMark({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
-  const iconSize = size === "sm" ? "h-7 w-7" : size === "lg" ? "h-12 w-12" : "h-9 w-9";
-  const nameSize = size === "sm" ? "text-sm" : size === "lg" ? "text-2xl" : "text-[1.1rem]";
-  const groupSize = size === "sm" ? "text-[0.5rem]" : size === "lg" ? "text-[0.7rem]" : "text-[0.58rem]";
-  const dashW = size === "sm" ? "w-2" : size === "lg" ? "w-5" : "w-3";
+  const imgClass =
+    size === "sm" ? "h-20 w-auto" :
+    size === "lg" ? "h-40 w-auto" :
+    "h-32 w-auto";
 
   return (
-    <div className="flex items-center gap-2.5">
-      <img
-        src={LOGO_URL}
-        alt=""
-        aria-hidden
-        className={`${iconSize} object-contain`}
-        style={{ imageRendering: "crisp-edges" }}
-      />
-      <div className="flex flex-col leading-none">
-        <span
-          className={`text-white font-bold tracking-[0.2em] ${nameSize}`}
-          style={{ fontFamily: "Outfit, sans-serif", letterSpacing: "0.2em" }}
-        >
-          WKRLY
-        </span>
-        <div className={`flex items-center gap-1 mt-[3px]`}>
-          <div className={`h-px ${dashW} bg-[hsl(168,68%,47%)]`} />
-          <span
-            className={`text-[hsl(168,68%,47%)] ${groupSize} tracking-[0.28em] font-semibold`}
-            style={{ fontFamily: "Outfit, sans-serif" }}
-          >
-            GROUP
-          </span>
-          <div className={`h-px ${dashW} bg-[hsl(168,68%,47%)]`} />
-        </div>
-      </div>
-    </div>
+    <img
+      src={logoSrc}
+      alt="WKRLY Group"
+      className={imgClass}
+      style={{ objectFit: "contain" }}
+    />
   );
 }
 
@@ -147,7 +125,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 pt-[4.25rem] flex flex-col">{children}</main>
+      <main className="flex-1 pt-40 flex flex-col">{children}</main>
       <CookieBanner />
 
       {/* Footer */}
