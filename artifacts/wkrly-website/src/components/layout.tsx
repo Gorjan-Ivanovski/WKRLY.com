@@ -2,6 +2,7 @@ import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import CookieBanner from "./cookie-banner";
 
 const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
 
@@ -118,6 +119,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       </AnimatePresence>
 
       <main className="flex-1 pt-[3.75rem] flex flex-col">{children}</main>
+
+      <CookieBanner />
 
       {/* Footer — dark navy */}
       <footer className="bg-[hsl(215,65%,10%)] pt-16 pb-8 border-t border-white/10">
