@@ -33,6 +33,8 @@ const fadeInUp = {
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -46,8 +48,31 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(_data: ContactFormValues) {
-    setSubmitted(true);
+  async function onSubmit(data: ContactFormValues) {
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          reason: data.reason,
+          message: data.message,
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error ?? "Something went wrong. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -223,12 +248,17 @@ export default function Contact() {
                       )}
                     />
 
+                    {submitError && (
+                      <p className="text-sm text-destructive" data-testid="text-submit-error">{submitError}</p>
+                    )}
+
                     <button
                       type="submit"
-                      className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90 w-full sm:w-auto"
+                      disabled={submitting}
+                      className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
                       data-testid="button-submit"
                     >
-                      Send Message
+                      {submitting ? "Sending…" : "Send Message"}
                     </button>
                   </form>
                 </Form>
