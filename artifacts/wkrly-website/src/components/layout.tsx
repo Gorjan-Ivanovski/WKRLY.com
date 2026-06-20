@@ -6,6 +6,43 @@ import CookieBanner from "./cookie-banner";
 
 const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
 
+function LogoMark({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const iconSize = size === "sm" ? "h-7 w-7" : size === "lg" ? "h-12 w-12" : "h-9 w-9";
+  const nameSize = size === "sm" ? "text-sm" : size === "lg" ? "text-2xl" : "text-[1.1rem]";
+  const groupSize = size === "sm" ? "text-[0.5rem]" : size === "lg" ? "text-[0.7rem]" : "text-[0.58rem]";
+  const dashW = size === "sm" ? "w-2" : size === "lg" ? "w-5" : "w-3";
+
+  return (
+    <div className="flex items-center gap-2.5">
+      <img
+        src={LOGO_URL}
+        alt=""
+        aria-hidden
+        className={`${iconSize} object-contain`}
+        style={{ imageRendering: "crisp-edges" }}
+      />
+      <div className="flex flex-col leading-none">
+        <span
+          className={`text-white font-bold tracking-[0.2em] ${nameSize}`}
+          style={{ fontFamily: "Outfit, sans-serif", letterSpacing: "0.2em" }}
+        >
+          WKRLY
+        </span>
+        <div className={`flex items-center gap-1 mt-[3px]`}>
+          <div className={`h-px ${dashW} bg-[hsl(168,68%,47%)]`} />
+          <span
+            className={`text-[hsl(168,68%,47%)] ${groupSize} tracking-[0.28em] font-semibold`}
+            style={{ fontFamily: "Outfit, sans-serif" }}
+          >
+            GROUP
+          </span>
+          <div className={`h-px ${dashW} bg-[hsl(168,68%,47%)]`} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Layout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const pathname = location.pathname;
@@ -13,9 +50,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,19 +70,16 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Header — always dark navy */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-[hsl(215,65%,10%)] ${
-          scrolled ? "border-b border-white/10 shadow-lg shadow-black/20" : "border-b border-transparent"
-        } py-3`}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-[hsl(215,65%,10%)] py-4 ${
+          scrolled
+            ? "border-b border-white/10 shadow-xl shadow-black/30"
+            : "border-b border-transparent"
+        }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link to="/" className="shrink-0 flex items-center" data-testid="link-logo">
-            <img
-              src={LOGO_URL}
-              alt="WKRLY Group"
-              className="h-12 w-auto"
-            />
+          <Link to="/" data-testid="link-logo" className="shrink-0">
+            <LogoMark size="md" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -58,7 +90,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 className={`text-sm font-medium tracking-wide transition-colors ${
                   pathname === link.href
                     ? "text-[hsl(168,68%,47%)]"
-                    : "text-white/70 hover:text-white"
+                    : "text-white/65 hover:text-white"
                 }`}
                 data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
@@ -67,7 +99,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             ))}
             <Link
               to="/contact"
-              className="inline-flex h-9 items-center justify-center rounded-md bg-[hsl(168,68%,47%)] px-5 text-sm font-semibold text-white shadow transition-colors hover:bg-[hsl(168,68%,40%)]"
+              className="inline-flex h-9 items-center justify-center rounded-md bg-[hsl(168,68%,47%)] px-5 text-sm font-semibold text-white shadow-md shadow-black/20 transition-all hover:bg-[hsl(168,68%,40%)] hover:shadow-lg"
               data-testid="link-nav-contact"
             >
               Get in Touch
@@ -75,23 +107,22 @@ export default function Layout({ children }: { children: ReactNode }) {
           </nav>
 
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[hsl(215,65%,10%)] pt-24 px-6 pb-6 flex flex-col"
+            exit={{ opacity: 0, y: -16 }}
+            className="fixed inset-0 z-40 bg-[hsl(215,65%,9%)] pt-24 px-6 pb-8 flex flex-col"
           >
             <nav className="flex flex-col gap-6 text-xl">
               {navLinks.map((link) => (
@@ -99,9 +130,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                   key={link.href}
                   to={link.href}
                   className={`font-medium ${
-                    pathname === link.href
-                      ? "text-[hsl(168,68%,47%)]"
-                      : "text-white"
+                    pathname === link.href ? "text-[hsl(168,68%,47%)]" : "text-white"
                   }`}
                 >
                   {link.label}
@@ -118,35 +147,42 @@ export default function Layout({ children }: { children: ReactNode }) {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 pt-[3.75rem] flex flex-col">{children}</main>
-
+      <main className="flex-1 pt-[4.25rem] flex flex-col">{children}</main>
       <CookieBanner />
 
-      {/* Footer — dark navy */}
-      <footer className="bg-[hsl(215,65%,10%)] pt-16 pb-8 border-t border-white/10">
+      {/* Footer */}
+      <footer className="bg-[hsl(215,65%,8%)] pt-16 pb-8 border-t border-white/8">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
             <div className="md:col-span-2">
-              <Link to="/" className="inline-block mb-5" data-testid="link-footer-logo">
-                <img src={LOGO_URL} alt="WKRLY Group" className="h-14 w-auto" />
+              <Link to="/" className="inline-block mb-6" data-testid="link-footer-logo">
+                <LogoMark size="lg" />
               </Link>
-              <p className="text-white/60 max-w-sm text-base leading-relaxed">
-                Building products that help people reach further.
+              <p className="text-white/50 max-w-xs text-sm leading-relaxed">
+                Building products that help people reach further — one tool, one win, at a time.
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-widest">Explore</h3>
+              <h3 className="font-semibold text-white/90 mb-5 text-xs uppercase tracking-widest">
+                Explore
+              </h3>
               <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <Link to={link.href} className="text-white/50 hover:text-white transition-colors text-sm">
+                    <Link
+                      to={link.href}
+                      className="text-white/45 hover:text-[hsl(168,68%,47%)] transition-colors text-sm"
+                    >
                       {link.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link to="/contact" className="text-white/50 hover:text-white transition-colors text-sm">
+                  <Link
+                    to="/contact"
+                    className="text-white/45 hover:text-[hsl(168,68%,47%)] transition-colors text-sm"
+                  >
                     Contact
                   </Link>
                 </li>
@@ -154,40 +190,52 @@ export default function Layout({ children }: { children: ReactNode }) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-widest">Contact & Legal</h3>
-              <address className="not-italic text-white/50 mb-5 space-y-1 text-sm leading-relaxed">
+              <h3 className="font-semibold text-white/90 mb-5 text-xs uppercase tracking-widest">
+                Contact & Legal
+              </h3>
+              <address className="not-italic text-white/45 mb-5 space-y-1 text-sm leading-relaxed">
                 <p className="text-white/70 font-medium">WKRLY Group LLC</p>
                 <p>30 N Gould St Ste N</p>
                 <p>Sheridan, WY 82801</p>
                 <p>United States</p>
               </address>
-              <div className="text-white/50 space-y-1 mb-6 text-sm">
+              <div className="text-white/45 space-y-1 mb-6 text-sm">
                 <p>(307) 400-5868</p>
                 <p>info@wkrly.com</p>
               </div>
               <ul className="space-y-2 text-sm">
-                <li>
-                  <Link to="/privacy-policy" className="text-white/50 hover:text-white transition-colors">Privacy Policy</Link>
-                </li>
-                <li>
-                  <Link to="/terms-of-use" className="text-white/50 hover:text-white transition-colors">Terms of Use</Link>
-                </li>
-                <li>
-                  <Link to="/cookie-policy" className="text-white/50 hover:text-white transition-colors">Cookie Policy</Link>
-                </li>
+                {[
+                  { label: "Privacy Policy", href: "/privacy-policy" },
+                  { label: "Terms of Use", href: "/terms-of-use" },
+                  { label: "Cookie Policy", href: "/cookie-policy" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      to={l.href}
+                      className="text-white/40 hover:text-white/70 transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          {/* Teal divider */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-px flex-1 bg-white/10" />
-            <div className="h-px w-16 bg-[hsl(168,68%,47%)]" />
+          {/* Circuit-style divider */}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px flex-1 bg-white/8" />
+            <svg width="40" height="10" viewBox="0 0 40 10" fill="none" className="shrink-0 opacity-60">
+              <circle cx="5" cy="5" r="2.5" fill="hsl(168,68%,47%)" />
+              <line x1="7.5" y1="5" x2="32.5" y2="5" stroke="hsl(168,68%,47%)" strokeWidth="1" strokeDasharray="3 2" />
+              <circle cx="35" cy="5" r="2.5" fill="hsl(168,68%,47%)" />
+            </svg>
+            <div className="h-px flex-1 bg-white/8" />
           </div>
 
-          <div className="text-sm text-white/40 flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2026 WKRLY Group LLC. All rights reserved.</p>
-          </div>
+          <p className="text-xs text-white/30 text-center">
+            &copy; 2026 WKRLY Group LLC. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>
