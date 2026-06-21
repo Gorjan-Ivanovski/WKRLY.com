@@ -1,0 +1,9 @@
+# Railway static deploy — SPA fallback for client-side routing.
+# Serves real files/assets directly; routes unknown paths to index.html
+# so deep links (e.g. /what-we-do) load the React app instead of 404ing.
+:{$PORT}
+
+root * .
+encode gzip zstd
+try_files {path} /index.html
+file_server
