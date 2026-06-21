@@ -1,0 +1,19 @@
+name = "wkrly-contact"
+main = "src/worker.js"
+compatibility_date = "2024-11-01"
+
+# Intercept /api/* on both the apex and www so the form's same-origin POST
+# to /api/contact is handled by this Worker instead of the static origin.
+routes = [
+  { pattern = "wkrly.com/api/*", zone_name = "wkrly.com" },
+  { pattern = "www.wkrly.com/api/*", zone_name = "wkrly.com" },
+]
+
+[vars]
+CONTACT_NOTIFICATION_EMAIL = "info@wkrly.com"
+# Use a sender on a domain you've verified in Resend, e.g. "WKRLY Group <hello@wkrly.com>".
+# Defaults to Resend's sandbox sender (only delivers to your own Resend account email).
+RESEND_FROM_ADDRESS = "WKRLY Group <onboarding@resend.dev>"
+
+# RESEND_API_KEY is a secret — do NOT put it here.
+# Set it with:  wrangler secret put RESEND_API_KEY
