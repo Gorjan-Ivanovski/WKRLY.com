@@ -1,46 +1,62 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
+const C = {
+  navy: "#0a1626", navyDeep: "#08121f", navyCard: "#0c1a2b",
+  teal: "#34d6a6", heading: "#f1f6f9",
+  body: "#92a6b8", muted: "#7e93a5", hairline: "rgba(255,255,255,.07)",
 };
+const sora: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
+const manrope: React.CSSProperties = { fontFamily: "'Manrope', sans-serif" };
+
+function Eyebrow({ children, mb = 18 }: { children: React.ReactNode; mb?: number }) {
+  return (
+    <div style={{ ...manrope, fontSize: 12, letterSpacing: ".16em", fontWeight: 600, color: C.teal, marginBottom: mb, textTransform: "uppercase" }}>
+      {children}
+    </div>
+  );
+}
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.55, delay },
+});
 
 const categories = ["Building Products", "The Future of Work", "Goals & Progress", "Behind the Build"];
 
 export default function Insights() {
   return (
-    <div className="w-full">
-      {/* Hero */}
-      <section className="bg-[hsl(215,65%,10%)]">
-        <div className="container mx-auto px-6 md:px-12 pt-20 pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-3xl"
+    <div style={{ ...manrope, background: C.navy }}>
+
+      {/* HERO */}
+      <section style={{ padding: "84px 0 92px" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="wk-section-pad"
+          style={{ maxWidth: 1240, margin: "0 auto", padding: "0 56px" }}
+        >
+          <Eyebrow mb={28}>Insights</Eyebrow>
+          <h1
+            className="wk-section-h2"
+            style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 640, margin: "0 0 28px" }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-primary" />
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Insights</p>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.08] text-white">
-              Ideas worth sharing.
-            </h1>
-            <p className="text-xl text-white/65 leading-relaxed">
-              Thoughts from our team on building products, the future of work, and what it really takes to help people reach their goals.
-            </p>
-          </motion.div>
-        </div>
+            Ideas worth sharing.
+          </h1>
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 560 }}>
+            Thoughts from our team on building products, the future of work, and what it really takes to help people reach their goals.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Intro + Categories */}
-      <section className="bg-secondary/30 py-16">
-        <div className="container mx-auto px-6 md:px-12">
-          <motion.div {...fadeInUp} className="mb-8">
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+      {/* INTRO + CATEGORIES */}
+      <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
+        <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "56px 56px" }}>
+          <motion.div {...fadeUp()} style={{ marginBottom: 28 }}>
+            <p style={{ fontSize: 17, lineHeight: 1.7, color: C.body, maxWidth: 600 }}>
               We learn a lot building products for ambitious people — about software, about work, and about what actually helps someone make progress. This is where we share some of it.
             </p>
           </motion.div>
@@ -49,39 +65,48 @@ export default function Insights() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap gap-3"
+            style={{ display: "flex", flexWrap: "wrap", gap: 10 }}
           >
             {categories.map((cat) => (
               <span
                 key={cat}
-                className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 text-sm font-medium text-muted-foreground bg-background/60 cursor-default"
                 data-testid={`tag-category-${cat.toLowerCase().replace(/\s+/g, "-")}`}
+                style={{ display: "inline-flex", alignItems: "center", padding: "6px 16px", border: `1px solid ${C.hairline}`, borderRadius: 100, fontSize: 13, fontWeight: 500, color: C.muted, cursor: "default" }}
               >
                 {cat}
               </span>
             ))}
           </motion.div>
         </div>
-      </section>
+      </div>
 
-      {/* Empty State */}
-      <section className="py-32 container mx-auto px-6 md:px-12">
-        <motion.div {...fadeInUp} className="max-w-xl">
-          <div className="p-12 rounded-xl border border-dashed border-border/60 text-center">
-            <p className="text-lg font-medium text-foreground mb-3">We're just getting started.</p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+      {/* EMPTY STATE */}
+      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+        <motion.div
+          {...fadeUp()}
+          className="wk-section-pad"
+          style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}
+        >
+          <div
+            style={{ maxWidth: 560, background: C.navyCard, border: `1px dashed ${C.hairline}`, borderRadius: 14, padding: "56px 40px", textAlign: "center" }}
+          >
+            <p style={{ ...sora, fontSize: 17, fontWeight: 600, color: C.heading, marginBottom: 12 }}>We're just getting started.</p>
+            <p style={{ fontSize: 15, lineHeight: 1.65, color: C.body, marginBottom: 28 }}>
               Our first pieces are on the way — check back soon, or get in touch to stay in the loop.
             </p>
             <Link
               to="/contact"
-              className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-7 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               data-testid="link-insights-get-in-touch"
+              style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "12px 24px", borderRadius: 8, fontSize: 14, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
               Get in Touch
             </Link>
           </div>
         </motion.div>
-      </section>
+      </div>
+
     </div>
   );
 }

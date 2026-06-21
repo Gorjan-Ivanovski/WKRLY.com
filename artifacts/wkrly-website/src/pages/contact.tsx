@@ -11,6 +11,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { MapPin, Phone, Mail } from "lucide-react";
 
+const C = {
+  navy: "#0a1626", navyDeep: "#08121f", navyCard: "#0c1a2b",
+  teal: "#34d6a6", heading: "#f1f6f9",
+  body: "#92a6b8", muted: "#7e93a5", faint: "#56697a", hairline: "rgba(255,255,255,.07)",
+};
+const sora: React.CSSProperties = { fontFamily: "'Sora', sans-serif" };
+const manrope: React.CSSProperties = { fontFamily: "'Manrope', sans-serif" };
+
+function Eyebrow({ children, mb = 18 }: { children: React.ReactNode; mb?: number }) {
+  return (
+    <div style={{ ...manrope, fontSize: 12, letterSpacing: ".16em", fontWeight: 600, color: C.teal, marginBottom: mb, textTransform: "uppercase" }}>
+      {children}
+    </div>
+  );
+}
+
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Please enter a valid email"),
@@ -24,12 +40,12 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.55, delay },
+});
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -38,14 +54,7 @@ export default function Contact() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      reason: "",
-      message: "",
-      privacyPolicy: false,
-    },
+    defaultValues: { name: "", email: "", company: "", reason: "", message: "", privacyPolicy: false },
   });
 
   async function onSubmit(data: ContactFormValues) {
@@ -55,13 +64,7 @@ export default function Contact() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          company: data.company,
-          reason: data.reason,
-          message: data.message,
-        }),
+        body: JSON.stringify({ name: data.name, email: data.email, company: data.company, reason: data.reason, message: data.message }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -76,241 +79,228 @@ export default function Contact() {
   }
 
   return (
-    <div className="w-full">
-      {/* Hero */}
-      <section className="bg-[hsl(215,65%,10%)]">
-        <div className="container mx-auto px-6 md:px-12 pt-10 pb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-2xl"
+    <div style={{ ...manrope, background: C.navy }}>
+
+      {/* HERO */}
+      <section style={{ padding: "84px 0 60px" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="wk-section-pad"
+          style={{ maxWidth: 1240, margin: "0 auto", padding: "0 56px" }}
+        >
+          <Eyebrow mb={28}>Contact</Eyebrow>
+          <h1
+            className="wk-section-h2"
+            style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 560, margin: "0 0 24px" }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-primary" />
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Contact</p>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-[1.08] text-white">
-              Let's talk.
-            </h1>
-            <p className="text-xl text-white/65 leading-relaxed">
-              Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
-            </p>
-          </motion.div>
-        </div>
+            Let's talk.
+          </h1>
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 520 }}>
+            Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Form + Info */}
-      <section className="pt-16 pb-32">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 max-w-5xl">
-            {/* Form */}
-            <motion.div {...fadeInUp} className="lg:col-span-3">
+      {/* FORM + INFO */}
+      <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
+        <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "72px 56px 96px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 64, alignItems: "start" }} className="wk-two-col">
+
+            {/* FORM */}
+            <motion.div {...fadeUp()}>
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="p-12 rounded-xl border border-border/60 bg-secondary/20 text-center"
                   data-testid="text-form-success"
+                  style={{ background: C.navyCard, border: `1px solid ${C.hairline}`, borderRadius: 14, padding: "56px 40px", textAlign: "center" }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <span className="text-primary text-2xl font-bold">✓</span>
+                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(52,214,166,.15)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
+                    <span style={{ color: C.teal, fontSize: 22, fontWeight: 700 }}>✓</span>
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">Message sent.</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <h3 style={{ ...sora, fontSize: 22, fontWeight: 700, color: C.heading, marginBottom: 12 }}>Message sent.</h3>
+                  <p style={{ fontSize: 15, lineHeight: 1.65, color: C.body }}>
                     Thanks for reaching out. We've received your message and will be in touch soon.
                   </p>
                 </motion.div>
               ) : (
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                /* CSS variable overrides so shadcn form components render on dark bg */
+                <div style={{
+                  "--foreground": "210 20% 95%",
+                  "--muted-foreground": "215 20% 65%",
+                  "--border": "215 30% 22%",
+                  "--input": "215 30% 16%",
+                  "--ring": "168 68% 47%",
+                  "--background": "215 40% 12%",
+                  "--card": "215 40% 12%",
+                  "--accent": "215 30% 18%",
+                  "--accent-foreground": "210 20% 95%",
+                  "--destructive": "0 72% 60%",
+                } as React.CSSProperties}>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Name <span style={{ color: C.teal }}>*</span></FormLabel>
+                              <FormControl>
+                                <Input placeholder="Your name" {...field} data-testid="input-name" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email <span style={{ color: C.teal }}>*</span></FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="you@company.com" {...field} data-testid="input-email" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
                       <FormField
                         control={form.control}
-                        name="name"
+                        name="company"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Name <span className="text-primary">*</span></FormLabel>
+                            <FormLabel>Company <span style={{ fontSize: 12, color: C.muted, fontWeight: 400 }}>(optional)</span></FormLabel>
                             <FormControl>
-                              <Input
-                                placeholder="Your name"
-                                {...field}
-                                data-testid="input-name"
-                              />
+                              <Input placeholder="Your company" {...field} data-testid="input-company" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
+
                       <FormField
                         control={form.control}
-                        name="email"
+                        name="reason"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Email <span className="text-primary">*</span></FormLabel>
+                            <FormLabel>I'm reaching out about… <span style={{ color: C.teal }}>*</span></FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger data-testid="select-reason">
+                                  <SelectValue placeholder="Select a topic" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="partnership">Partnership</SelectItem>
+                                <SelectItem value="careers">Careers</SelectItem>
+                                <SelectItem value="press">Press & Media</SelectItem>
+                                <SelectItem value="general">General Enquiry</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Message <span style={{ color: C.teal }}>*</span></FormLabel>
                             <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="you@company.com"
-                                {...field}
-                                data-testid="input-email"
-                              />
+                              <Textarea placeholder="Tell us what's on your mind..." className="min-h-[140px] resize-none" {...field} data-testid="textarea-message" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
-                    </div>
 
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Company <span className="text-muted-foreground text-xs font-normal">(optional)</span></FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Your company"
-                              {...field}
-                              data-testid="input-company"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
+                      <FormField
+                        control={form.control}
+                        name="privacyPolicy"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <div className="flex flex-row items-center space-x-3">
+                              <FormControl>
+                                <Checkbox checked={field.value} onCheckedChange={field.onChange} data-testid="checkbox-privacy" />
+                              </FormControl>
+                              <FormLabel className="font-normal cursor-pointer leading-none" style={{ color: C.muted }}>
+                                I agree to the{" "}
+                                <Link to="/privacy-policy" style={{ color: C.teal, textDecoration: "none" }}>
+                                  Privacy Policy
+                                </Link>
+                              </FormLabel>
+                            </div>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      {submitError && (
+                        <p className="text-sm text-destructive" data-testid="text-submit-error">{submitError}</p>
                       )}
-                    />
 
-                    <FormField
-                      control={form.control}
-                      name="reason"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>I'm reaching out about… <span className="text-primary">*</span></FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger data-testid="select-reason">
-                                <SelectValue placeholder="Select a topic" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              <SelectItem value="partnership">Partnership</SelectItem>
-                              <SelectItem value="careers">Careers</SelectItem>
-                              <SelectItem value="press">Press & Media</SelectItem>
-                              <SelectItem value="general">General Enquiry</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message <span className="text-primary">*</span></FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Tell us what's on your mind..."
-                              className="min-h-[140px] resize-none"
-                              {...field}
-                              data-testid="textarea-message"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="privacyPolicy"
-                      render={({ field }) => (
-                        <FormItem className="space-y-2">
-                          <div className="flex flex-row items-center space-x-3">
-                            <FormControl>
-                              <Checkbox
-                                checked={field.value}
-                                onCheckedChange={field.onChange}
-                                data-testid="checkbox-privacy"
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal text-muted-foreground cursor-pointer leading-none">
-                              I agree to the{" "}
-                              <Link to="/privacy-policy" className="text-primary hover:underline">
-                                Privacy Policy
-                              </Link>
-                            </FormLabel>
-                          </div>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    {submitError && (
-                      <p className="text-sm text-destructive" data-testid="text-submit-error">{submitError}</p>
-                    )}
-
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
-                      data-testid="button-submit"
-                    >
-                      {submitting ? "Sending…" : "Send Message"}
-                    </button>
-                  </form>
-                </Form>
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        data-testid="button-submit"
+                        style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "14px 32px", borderRadius: 9, fontSize: 15, border: "none", cursor: submitting ? "not-allowed" : "pointer", opacity: submitting ? 0.6 : 1, transition: "opacity 150ms", display: "inline-block" }}
+                      >
+                        {submitting ? "Sending…" : "Send Message"}
+                      </button>
+                    </form>
+                  </Form>
+                </div>
               )}
             </motion.div>
 
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-2 space-y-8"
-            >
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-5">Direct Contact</p>
-                <div className="space-y-4">
-                  <a
-                    href="mailto:info@wkrly.com"
-                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-                    data-testid="link-email"
+            {/* CONTACT INFO */}
+            <motion.div {...fadeUp(0.15)} style={{ paddingTop: 8 }}>
+              <div style={{ marginBottom: 40 }}>
+                <div style={{ ...manrope, fontSize: 11, letterSpacing: ".14em", fontWeight: 600, color: C.faint, marginBottom: 20, textTransform: "uppercase" }}>Direct Contact</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                  <a href="mailto:info@wkrly.com" data-testid="link-email" style={{ display: "flex", alignItems: "center", gap: 12, color: C.body, textDecoration: "none", fontSize: 15, transition: "color 150ms" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = C.heading)}
+                    onMouseLeave={e => (e.currentTarget.style.color = C.body)}
                   >
-                    <Mail size={16} className="text-primary shrink-0" />
+                    <Mail size={15} color={C.teal} style={{ flexShrink: 0 }} />
                     info@wkrly.com
                   </a>
-                  <a
-                    href="tel:+13074005868"
-                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-                    data-testid="link-phone"
+                  <a href="tel:+13074005868" data-testid="link-phone" style={{ display: "flex", alignItems: "center", gap: 12, color: C.body, textDecoration: "none", fontSize: 15, transition: "color 150ms" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = C.heading)}
+                    onMouseLeave={e => (e.currentTarget.style.color = C.body)}
                   >
-                    <Phone size={16} className="text-primary shrink-0" />
+                    <Phone size={15} color={C.teal} style={{ flexShrink: 0 }} />
                     (307) 400-5868
                   </a>
                 </div>
               </div>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-5">Office</p>
-                <address className="not-italic text-muted-foreground leading-relaxed flex items-start gap-3">
-                  <MapPin size={16} className="text-primary shrink-0 mt-1" />
+                <div style={{ ...manrope, fontSize: 11, letterSpacing: ".14em", fontWeight: 600, color: C.faint, marginBottom: 20, textTransform: "uppercase" }}>Office</div>
+                <address style={{ display: "flex", gap: 12, alignItems: "flex-start", fontStyle: "normal", color: C.body, fontSize: 15, lineHeight: 1.7 }}>
+                  <MapPin size={15} color={C.teal} style={{ flexShrink: 0, marginTop: 4 }} />
                   <div>
-                    <p className="font-medium text-foreground mb-1">WKRLY Group LLC</p>
-                    <p>30 N Gould St Ste N</p>
-                    <p>Sheridan, WY 82801</p>
-                    <p>United States</p>
+                    <div style={{ color: C.heading, fontWeight: 600, marginBottom: 4 }}>WKRLY Group LLC</div>
+                    <div>30 N Gould St Ste N</div>
+                    <div>Sheridan, WY 82801</div>
+                    <div>United States</div>
                   </div>
                 </address>
               </div>
             </motion.div>
+
           </div>
         </div>
-      </section>
+      </div>
+
     </div>
   );
 }
