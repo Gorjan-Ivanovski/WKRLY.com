@@ -28,11 +28,6 @@ export default function PrivacyPolicy() {
           <h1 style={{ ...sora, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 48px)", color: C.heading, margin: "0 0 10px", letterSpacing: "-.02em" }}>Privacy Policy</h1>
           <p style={{ fontSize: 14, color: C.muted, marginBottom: 40 }}>Last updated: June 2026</p>
 
-          <div style={{ background: C.navyCard, border: `1px solid ${C.hairline}`, borderRadius: 10, padding: "18px 22px", fontSize: 13, lineHeight: 1.65, color: C.muted, marginBottom: 8 }}>
-            <span style={{ color: C.body, fontWeight: 600 }}>Important: </span>
-            This Privacy Policy is a starting template written in plain, professional language. It is not legal advice. Before publishing, have it reviewed by a qualified attorney and tailored to your actual data practices and the laws that apply to you.
-          </div>
-
           <Section title="Introduction">
             <p style={{ fontSize: 15, lineHeight: 1.75, color: C.body }}>
               This Privacy Policy explains how WKRLY Group LLC ("WKRLY Group," "we," "us," or "our") collects, uses, and protects information when you visit our website or interact with us. By using our website, you agree to the practices described in this policy.
@@ -100,7 +95,6 @@ export default function PrivacyPolicy() {
             <p style={{ fontSize: 15, lineHeight: 1.75, color: C.body, marginBottom: 16 }}>If you have questions about this Privacy Policy, contact us at:</p>
             <address style={{ fontStyle: "normal", fontSize: 15, lineHeight: 1.75, color: C.body }}>
               <div style={{ color: C.heading, fontWeight: 600 }}>WKRLY Group LLC</div>
-              <div>30 N Gould St Ste N</div>
               <div>Sheridan, WY 82801, United States</div>
               <div><a href="mailto:info@wkrly.com" style={{ color: C.teal, textDecoration: "none" }}>info@wkrly.com</a> · (307) 400-5868</div>
             </address>

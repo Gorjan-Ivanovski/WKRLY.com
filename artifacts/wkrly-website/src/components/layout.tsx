@@ -250,7 +250,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             </p>
             <address style={{ fontStyle: "normal", fontFamily: "'Manrope', sans-serif", fontSize: 13, lineHeight: 1.7, color: "#7e93a5" }}>
               <div>WKRLY Group LLC</div>
-              <div>30 N Gould St Ste N, Sheridan, WY 82801</div>
+              <div>Sheridan, WY 82801</div>
               <div style={{ marginTop: 8 }}>
                 <a href="tel:+13074005868" style={{ color: "#7e93a5", textDecoration: "none" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "#aab9c6")}

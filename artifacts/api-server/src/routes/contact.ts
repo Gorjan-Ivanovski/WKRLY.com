@@ -54,7 +54,7 @@ router.post("/contact", async (req: Request, res: Response) => {
         <p style="margin: 0; white-space: pre-wrap;">${message}</p>
       </div>
       <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e4e7;" />
-      <p style="color: #888; font-size: 13px;">WKRLY Group LLC · 30 N Gould St Ste N · Sheridan, WY 82801</p>
+      <p style="color: #888; font-size: 13px;">WKRLY Group LLC · Sheridan, WY 82801</p>
     </div>
   `;
 

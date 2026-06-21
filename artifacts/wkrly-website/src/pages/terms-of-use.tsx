@@ -28,11 +28,6 @@ export default function TermsOfUse() {
           <h1 style={{ ...sora, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 48px)", color: C.heading, margin: "0 0 10px", letterSpacing: "-.02em" }}>Terms of Use</h1>
           <p style={{ fontSize: 14, color: C.muted, marginBottom: 40 }}>Last updated: June 2026</p>
 
-          <div style={{ background: C.navyCard, border: `1px solid ${C.hairline}`, borderRadius: 10, padding: "18px 22px", fontSize: 13, lineHeight: 1.65, color: C.muted, marginBottom: 8 }}>
-            <span style={{ color: C.body, fontWeight: 600 }}>Important: </span>
-            This is a starting template, not legal advice. Have it reviewed and adapted by a qualified attorney before publishing.
-          </div>
-
           <Section title="Acceptance of terms">
             <p style={{ fontSize: 15, lineHeight: 1.75, color: C.body }}>
               These Terms of Use ("Terms") govern your access to and use of the website operated by WKRLY Group LLC ("WKRLY Group," "we," "us," or "our"). By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please do not use our website.
@@ -97,7 +92,6 @@ export default function TermsOfUse() {
             <p style={{ fontSize: 15, lineHeight: 1.75, color: C.body, marginBottom: 16 }}>Questions about these Terms can be directed to:</p>
             <address style={{ fontStyle: "normal", fontSize: 15, lineHeight: 1.75, color: C.body }}>
               <div style={{ color: C.heading, fontWeight: 600 }}>WKRLY Group LLC</div>
-              <div>30 N Gould St Ste N</div>
               <div>Sheridan, WY 82801, United States</div>
               <div><a href="mailto:info@wkrly.com" style={{ color: C.teal, textDecoration: "none" }}>info@wkrly.com</a> · (307) 400-5868</div>
             </address>

@@ -28,11 +28,6 @@ export default function CookiePolicy() {
           <h1 style={{ ...sora, fontWeight: 700, fontSize: "clamp(2rem, 4vw, 48px)", color: C.heading, margin: "0 0 10px", letterSpacing: "-.02em" }}>Cookie Policy</h1>
           <p style={{ fontSize: 14, color: C.muted, marginBottom: 40 }}>Last updated: June 2026</p>
 
-          <div style={{ background: C.navyCard, border: `1px solid ${C.hairline}`, borderRadius: 10, padding: "18px 22px", fontSize: 13, lineHeight: 1.65, color: C.muted, marginBottom: 8 }}>
-            <span style={{ color: C.body, fontWeight: 600 }}>Important: </span>
-            This is a template only, not legal advice. Adapt to the actual cookies and trackers your site uses, and have it reviewed by an attorney.
-          </div>
-
           <Section title="What are cookies?">
             <p style={{ fontSize: 15, lineHeight: 1.75, color: C.body }}>
               Cookies are small text files placed on your device when you visit a website. They help websites function, remember your preferences, and understand how the site is used.
