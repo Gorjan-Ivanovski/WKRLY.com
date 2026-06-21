@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 205" fill="none">
+  <!-- Circuit Leaf Icon — WKRLY Group -->
+  <g stroke="#27C9A9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Central stem -->
+    <line x1="100" y1="18" x2="100" y2="183"/>
+
+    <!-- Top apex diamond -->
+    <line x1="100" y1="18" x2="83" y2="30"/>
+    <line x1="100" y1="18" x2="117" y2="30"/>
+    <line x1="83"  y1="30" x2="76"  y2="46"/>
+    <line x1="117" y1="30" x2="124" y2="46"/>
+    <line x1="76"  y1="46" x2="88"  y2="59"/>
+    <line x1="124" y1="46" x2="112" y2="59"/>
+    <line x1="88"  y1="59" x2="100" y2="64"/>
+    <line x1="112" y1="59" x2="100" y2="64"/>
+
+    <!-- Upper left antler branch -->
+    <line x1="100" y1="74" x2="71"  y2="61"/>
+    <line x1="71"  y1="61" x2="47"  y2="71"/>
+
+    <!-- Upper right antler branch -->
+    <line x1="100" y1="74" x2="129" y2="61"/>
+    <line x1="129" y1="61" x2="153" y2="71"/>
+
+    <!-- Left main lobe frame -->
+    <line x1="100" y1="84" x2="66"  y2="84"/>
+    <line x1="66"  y1="84" x2="34"  y2="97"/>
+    <line x1="34"  y1="97" x2="34"  y2="120"/>
+    <line x1="34"  y1="120" x2="66" y2="130"/>
+    <line x1="66"  y1="130" x2="100" y2="120"/>
+    <!-- Left main lobe inner vertical trace -->
+    <line x1="66"  y1="84" x2="66"  y2="100"/>
+
+    <!-- Right main lobe frame -->
+    <line x1="100" y1="84" x2="134" y2="84"/>
+    <line x1="134" y1="84" x2="166" y2="97"/>
+    <line x1="166" y1="97" x2="166" y2="120"/>
+    <line x1="166" y1="120" x2="134" y2="130"/>
+    <line x1="134" y1="130" x2="100" y2="120"/>
+    <!-- Right main lobe inner vertical trace -->
+    <line x1="134" y1="84" x2="134" y2="100"/>
+
+    <!-- Left lower lobe frame -->
+    <line x1="100" y1="132" x2="68"  y2="132"/>
+    <line x1="68"  y1="132" x2="50"  y2="144"/>
+    <line x1="50"  y1="144" x2="68"  y2="154"/>
+    <line x1="68"  y1="154" x2="100" y2="150"/>
+    <!-- Left lower lobe inner trace -->
+    <line x1="68"  y1="132" x2="68"  y2="144"/>
+
+    <!-- Right lower lobe frame -->
+    <line x1="100" y1="132" x2="132" y2="132"/>
+    <line x1="132" y1="132" x2="150" y2="144"/>
+    <line x1="150" y1="144" x2="132" y2="154"/>
+    <line x1="132" y1="154" x2="100" y2="150"/>
+    <!-- Right lower lobe inner trace -->
+    <line x1="132" y1="132" x2="132" y2="144"/>
+
+    <!-- Bottom stem horizontal extensions -->
+    <line x1="100" y1="172" x2="74"  y2="172"/>
+    <line x1="100" y1="172" x2="126" y2="172"/>
+  </g>
+
+  <!-- Filled circle nodes -->
+  <g fill="#27C9A9">
+    <!-- Apex -->
+    <circle cx="100" cy="18"  r="6"/>
+    <circle cx="83"  cy="30"  r="6"/>
+    <circle cx="117" cy="30"  r="6"/>
+    <circle cx="76"  cy="46"  r="6"/>
+    <circle cx="124" cy="46"  r="6"/>
+
+    <!-- Upper antler tips -->
+    <circle cx="47"  cy="71"  r="6"/>
+    <circle cx="153" cy="71"  r="6"/>
+
+    <!-- Left main lobe corners + inner node -->
+    <circle cx="34"  cy="97"  r="6"/>
+    <circle cx="34"  cy="120" r="6"/>
+    <circle cx="66"  cy="100" r="5"/>
+
+    <!-- Right main lobe corners + inner node -->
+    <circle cx="166" cy="97"  r="6"/>
+    <circle cx="166" cy="120" r="6"/>
+    <circle cx="134" cy="100" r="5"/>
+
+    <!-- Left lower lobe tip + inner node -->
+    <circle cx="50"  cy="144" r="6"/>
+    <circle cx="68"  cy="144" r="5"/>
+
+    <!-- Right lower lobe tip + inner node -->
+    <circle cx="150" cy="144" r="6"/>
+    <circle cx="132" cy="144" r="5"/>
+
+    <!-- Bottom stem nodes -->
+    <circle cx="74"  cy="172" r="6"/>
+    <circle cx="126" cy="172" r="6"/>
+  </g>
+</svg>
