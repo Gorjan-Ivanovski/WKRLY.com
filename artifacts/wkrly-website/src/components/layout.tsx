@@ -3,40 +3,50 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CookieBanner from "./cookie-banner";
-import circuitLeafSrc from "@assets/image_1781936690930.png";
 
-function LogoMark({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
-  const iconH   = size === "sm" ? "h-9"  : size === "lg" ? "h-16" : "h-12";
-  const nameSize= size === "sm" ? "text-sm" : size === "lg" ? "text-2xl" : "text-[1.1rem]";
-  const grpSize = size === "sm" ? "text-[0.5rem]" : size === "lg" ? "text-[0.72rem]" : "text-[0.58rem]";
-  const dashW   = size === "sm" ? "w-2" : size === "lg" ? "w-5" : "w-3.5";
+const TEAL = "#34d6a6";
+const HAIRLINE = "rgba(255,255,255,.07)";
 
+function WChevronMark({ size = 28 }: { size?: number }) {
   return (
-    <div className="flex items-center gap-3">
-      <img
-        src={circuitLeafSrc}
-        alt=""
-        aria-hidden
-        className={`${iconH} w-auto`}
+    <svg
+      aria-hidden
+      width={size}
+      height={size}
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", flexShrink: 0 }}
+    >
+      <polyline
+        points="4,8 10,20 14,12 18,20 24,8"
+        stroke={TEAL}
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        fill="none"
       />
-      <div className="flex flex-col leading-none">
-        <span
-          className={`text-white font-bold tracking-[0.2em] ${nameSize}`}
-          style={{ fontFamily: "Outfit, sans-serif" }}
-        >
-          WKRLY
-        </span>
-        <div className="flex items-center gap-1 mt-[3px]">
-          <div className={`h-px ${dashW} bg-[hsl(168,68%,47%)]`} />
-          <span
-            className={`text-[hsl(168,68%,47%)] ${grpSize} tracking-[0.28em] font-semibold`}
-            style={{ fontFamily: "Outfit, sans-serif" }}
-          >
-            GROUP
-          </span>
-          <div className={`h-px ${dashW} bg-[hsl(168,68%,47%)]`} />
-        </div>
-      </div>
+    </svg>
+  );
+}
+
+function WkrlyLogo({ markSize = 28 }: { markSize?: number }) {
+  const fontSize = markSize === 24 ? 15 : 17;
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <WChevronMark size={markSize} />
+      <span
+        style={{
+          fontFamily: "'Sora', sans-serif",
+          fontWeight: 700,
+          fontSize,
+          letterSpacing: "0.04em",
+          color: "#ffffff",
+          lineHeight: 1,
+        }}
+      >
+        WKRLY
+      </span>
     </div>
   );
 }
@@ -66,77 +76,151 @@ export default function Layout({ children }: { children: ReactNode }) {
     { label: "Insights", href: "/insights" },
   ];
 
+  const footerLinks = [
+    { label: "What We Do", href: "/what-we-do" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col" style={{ background: "#0a1626" }}>
+
+      {/* ── NAV ── */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-[hsl(215,65%,10%)] py-4 ${
-          scrolled
-            ? "border-b border-white/10 shadow-xl shadow-black/30"
-            : "border-b border-transparent"
-        }`}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          background: "#0a1626",
+          borderBottom: `1px solid ${scrolled ? HAIRLINE : "transparent"}`,
+          boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,.35)" : "none",
+          transition: "border-color 300ms, box-shadow 300ms",
+        }}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link to="/" data-testid="link-logo" className="shrink-0">
-            <LogoMark size="md" />
+        <div
+          style={{
+            maxWidth: 1240,
+            margin: "0 auto",
+            padding: "0 56px",
+            height: 72,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+          className="wk-section-pad"
+        >
+          <Link
+            to="/"
+            data-testid="link-logo"
+            aria-label="WKRLY"
+            style={{ textDecoration: "none", flexShrink: 0 }}
+          >
+            <WkrlyLogo markSize={28} />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex" style={{ alignItems: "center", gap: 32 }}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors ${
-                  pathname === link.href
-                    ? "text-[hsl(168,68%,47%)]"
-                    : "text-white/65 hover:text-white"
-                }`}
                 data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  letterSpacing: ".01em",
+                  color: pathname === link.href ? TEAL : "rgba(255,255,255,.65)",
+                  textDecoration: "none",
+                  transition: "color 150ms",
+                }}
+                onMouseEnter={e => { if (pathname !== link.href) e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { if (pathname !== link.href) e.currentTarget.style.color = "rgba(255,255,255,.65)"; }}
               >
                 {link.label}
               </Link>
             ))}
             <Link
               to="/contact"
-              className="inline-flex h-9 items-center justify-center rounded-md bg-[hsl(168,68%,47%)] px-5 text-sm font-semibold text-white shadow-md shadow-black/20 transition-all hover:bg-[hsl(168,68%,40%)] hover:shadow-lg"
               data-testid="link-nav-contact"
+              style={{
+                fontFamily: "'Sora', sans-serif",
+                fontWeight: 700,
+                fontSize: 14,
+                background: TEAL,
+                color: "#08121f",
+                padding: "9px 20px",
+                borderRadius: 8,
+                textDecoration: "none",
+                transition: "opacity 150ms",
+                flexShrink: 0,
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
               Get in Touch
             </Link>
           </nav>
 
+          {/* Mobile hamburger */}
           <button
-            className="md:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+            className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-mobile-menu"
+            style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: 8, borderRadius: 6 }}
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </header>
 
+      {/* Mobile menu overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            className="fixed inset-0 z-40 bg-[hsl(215,65%,9%)] pt-24 px-6 pb-8 flex flex-col"
+            style={{
+              position: "fixed", inset: 0, zIndex: 40,
+              background: "#08121f",
+              paddingTop: 96, paddingLeft: 32, paddingRight: 32, paddingBottom: 32,
+              display: "flex", flexDirection: "column",
+            }}
           >
-            <nav className="flex flex-col gap-6 text-xl">
+            <nav style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`font-medium ${
-                    pathname === link.href ? "text-[hsl(168,68%,47%)]" : "text-white"
-                  }`}
+                  style={{
+                    fontFamily: "'Sora', sans-serif",
+                    fontSize: 22,
+                    fontWeight: 600,
+                    color: pathname === link.href ? TEAL : "#fff",
+                    textDecoration: "none",
+                  }}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 to="/contact"
-                className="mt-4 inline-flex h-12 items-center justify-center rounded-md bg-[hsl(168,68%,47%)] px-6 font-semibold text-white"
+                style={{
+                  marginTop: 16,
+                  fontFamily: "'Sora', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 16,
+                  background: TEAL,
+                  color: "#08121f",
+                  padding: "14px 24px",
+                  borderRadius: 9,
+                  textDecoration: "none",
+                  textAlign: "center",
+                }}
               >
                 Get in Touch
               </Link>
@@ -145,95 +229,100 @@ export default function Layout({ children }: { children: ReactNode }) {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 pt-20 flex flex-col">{children}</main>
+      <main className="flex-1 pt-[72px] flex flex-col">{children}</main>
       <CookieBanner />
 
-      {/* Footer */}
-      <footer className="bg-[hsl(215,65%,8%)] pt-16 pb-8 border-t border-white/8">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
-            <div className="md:col-span-2">
-              <Link to="/" className="inline-block mb-6" data-testid="link-footer-logo">
-                <LogoMark size="lg" />
+      {/* ── FOOTER ── */}
+      <footer style={{ background: "#08121f", borderTop: `1px solid ${HAIRLINE}` }}>
+        {/* Main row */}
+        <div
+          className="wk-section-pad"
+          style={{
+            maxWidth: 1240,
+            margin: "0 auto",
+            padding: "40px 56px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 24,
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Left: logo lockup */}
+          <Link
+            to="/"
+            data-testid="link-footer-logo"
+            aria-label="WKRLY"
+            style={{ textDecoration: "none", flexShrink: 0 }}
+          >
+            <WkrlyLogo markSize={24} />
+          </Link>
+
+          {/* Right: nav links */}
+          <nav style={{ display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap" }}>
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontWeight: 500,
+                  fontSize: 14,
+                  color: "#aab9c6",
+                  textDecoration: "none",
+                  transition: "color 150ms",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#aab9c6")}
+              >
+                {link.label}
               </Link>
-              <p className="text-white/50 max-w-xs text-sm leading-relaxed">
-                Building products that help people reach further — one tool, one win, at a time.
-              </p>
-            </div>
+            ))}
+          </nav>
+        </div>
 
-            <div>
-              <h3 className="font-semibold text-white/90 mb-5 text-xs uppercase tracking-widest">
-                Explore
-              </h3>
-              <ul className="space-y-3">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="text-white/45 hover:text-[hsl(168,68%,47%)] transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link
-                    to="/contact"
-                    className="text-white/45 hover:text-[hsl(168,68%,47%)] transition-colors text-sm"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+        {/* Hairline divider */}
+        <div style={{ height: 1, background: HAIRLINE, maxWidth: 1240, margin: "0 auto 0" }} className="wk-section-pad" />
 
-            <div>
-              <h3 className="font-semibold text-white/90 mb-5 text-xs uppercase tracking-widest">
-                Contact & Legal
-              </h3>
-              <address className="not-italic text-white/45 mb-5 space-y-1 text-sm leading-relaxed">
-                <p className="text-white/70 font-medium">WKRLY Group LLC</p>
-                <p>30 N Gould St Ste N</p>
-                <p>Sheridan, WY 82801</p>
-                <p>United States</p>
-              </address>
-              <div className="text-white/45 space-y-1 mb-6 text-sm">
-                <p>(307) 400-5868</p>
-                <p>info@wkrly.com</p>
-              </div>
-              <ul className="space-y-2 text-sm">
-                {[
-                  { label: "Privacy Policy", href: "/privacy-policy" },
-                  { label: "Terms of Use", href: "/terms-of-use" },
-                  { label: "Cookie Policy", href: "/cookie-policy" },
-                ].map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      to={l.href}
-                      className="text-white/40 hover:text-white/70 transition-colors"
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Circuit-style divider */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px flex-1 bg-white/8" />
-            <svg width="40" height="10" viewBox="0 0 40 10" fill="none" className="shrink-0 opacity-60">
-              <circle cx="5" cy="5" r="2.5" fill="hsl(168,68%,47%)" />
-              <line x1="7.5" y1="5" x2="32.5" y2="5" stroke="hsl(168,68%,47%)" strokeWidth="1" strokeDasharray="3 2" />
-              <circle cx="35" cy="5" r="2.5" fill="hsl(168,68%,47%)" />
-            </svg>
-            <div className="h-px flex-1 bg-white/8" />
-          </div>
-
-          <p className="text-xs text-white/30 text-center">
-            &copy; 2026 WKRLY Group LLC. All rights reserved.
+        {/* Bottom row */}
+        <div
+          className="wk-section-pad"
+          style={{
+            maxWidth: 1240,
+            margin: "0 auto",
+            padding: "20px 56px 32px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: 12, color: "#56697a", margin: 0 }}>
+            &copy; 2026 WKRLY Group LLC
           </p>
+          <div style={{ display: "flex", gap: 18 }}>
+            {[
+              { label: "Privacy", href: "/privacy-policy" },
+              { label: "Terms", href: "/terms-of-use" },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                to={l.href}
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 12,
+                  color: "#56697a",
+                  textDecoration: "none",
+                  transition: "color 150ms",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#aab9c6")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#56697a")}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </footer>
     </div>

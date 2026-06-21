@@ -1,0 +1,24 @@
+Apply only to the nav and footer of the WKRLY homepage. Everything else stays as built. Keep the navy/teal token set.
+
+New logo & branding mark
+Replace the rounded-square-with-dot mark with a "W" chevron monogram that reads as upward motion ("going somewhere"):
+
+Mark: a 28×28 box containing two teal (#34d6a6) upward chevrons forming a stylized W — i.e. an M-stroke flipped, drawn as a single 2.5px-stroke polyline 4,8 → 10,20 → 14,12 → 18,20 → 24,8 (rounded line joins/caps, no fill). No background tile — the mark sits directly on the navy.
+Wordmark: WKRLY in Sora 700, tracked +0.04em, white. Drop the teal period. Set the accent instead as a teal superscript dot or 3px underline only under the final Y, or omit entirely — keep it cleaner than before.
+Lockup: mark + 10px gap + wordmark, vertically centered. Logo height 28px in nav, 24px in footer.
+Provide the mark as an inline SVG component (currentColor for the stroke so it inherits teal) so it scales crisply; mark it aria-hidden with an aria-label="WKRLY" on the lockup link.
+Header (nav)
+Keep layout: padding 24px 56px, bottom hairline rgba(255,255,255,.07), max-width 1240px centered, flex space-between.
+Swap in the new logo lockup at left.
+Links and the "Get in Touch" teal pill button on the right stay unchanged.
+Footer — reduced details
+Collapse the 3-column footer into a compact single band (#08121f, padding 40px 56px, top hairline):
+
+One row, space-between, vertically centered:
+Left: new logo lockup (24px) + the wordmark.
+Right: a single inline link row — What We Do · Portfolio · Careers · Contact (Manrope 500 14px #aab9c6, gap 28px). Drop the brand blurb, the "EXPLORE"/"CONTACT & LEGAL" labels, the address block, and the email.
+Below it, a thin hairline divider, then a slim bottom row (padding-top:20px, space-between):
+Left: © 2026 WKRLY Group LLC — 12px #56697a.
+Right: Privacy · Terms — 12px #56697a, gap 18px.
+Remove the "Insights" and "About" footer links and the Sheridan, WY address — footer is now navigational/legal only.
+Keep all hover/focus affordances consistent with the rest of the page.
