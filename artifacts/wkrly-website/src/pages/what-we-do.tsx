@@ -25,24 +25,16 @@ const fadeUp = (delay = 0) => ({
 });
 
 const whatWeMake = [
-  { title: "SaaS products.", body: "Subscription software built to solve real, recurring problems for professionals and the teams they work in. Tools people return to because they make work measurably better." },
-  { title: "Digital properties.", body: "Beyond core software, we build the digital experiences — platforms, content, and services — that help our products reach and serve their audiences." },
-  { title: "A focused portfolio.", body: "Rather than chasing every opportunity, we build a deliberate portfolio of products that share a common purpose: helping people achieve their professional goals." },
+  { title: "SaaS products.", body: "Subscription software for recurring, real problems — tools people come back to because they make work measurably better." },
+  { title: "Digital properties.", body: "The platforms, content, and services that help our products reach and serve the people they're built for." },
 ];
 
 const process = [
-  { num: "1", title: "Discover", body: "We start by understanding people and problems. Through research, conversation, and analysis, we find the goals people are struggling to reach and the friction standing in their way." },
-  { num: "2", title: "Validate", body: "Before we commit to building, we test our thinking. We prototype, we put ideas in front of real people, and we look for evidence that a product is worth building — and worth using." },
-  { num: "3", title: "Design & Build", body: "We design experiences that are intuitive and humane, and we engineer software that's reliable, secure, and built to scale. Craft shows up in the details, so we sweat them." },
-  { num: "4", title: "Launch", body: "We bring products to market with clear positioning, the right infrastructure, and the momentum to find an audience. A great launch is a beginning, not an event." },
-  { num: "5", title: "Grow & Operate", body: "Once a product is live, the real work begins. We measure, learn, and iterate — compounding small, consistent improvements into durable value for the people who rely on us." },
-];
-
-const principles = [
-  { title: "Real problems only.", body: "If it doesn't help someone make progress, we don't build it." },
-  { title: "Speed with judgment.", body: "We move fast, but never past the things that matter." },
-  { title: "Built to be trusted.", body: "Security, reliability, and privacy are foundational, not features." },
-  { title: "Designed to last.", body: "We build for the long term, not the next spike." },
+  { num: "1", title: "Discover", body: "We start with people and problems — finding the goals people struggle to reach and the friction in the way." },
+  { num: "2", title: "Validate", body: "Before we commit, we test the thinking. We prototype, put ideas in front of the people they're for, and look for evidence a product is worth building and worth using." },
+  { num: "3", title: "Design & build", body: "Experiences that are intuitive and humane, engineered to be reliable, secure, and ready to scale. Craft lives in the details, so we sweat them." },
+  { num: "4", title: "Launch", body: "Clear positioning, the right infrastructure, and the momentum to find an audience. A launch is a beginning, not an event." },
+  { num: "5", title: "Grow & operate", body: "Once a product is live, the real work begins. We listen, measure, and improve — turning a launch into a product that compounds." },
 ];
 
 export default function WhatWeDo() {
@@ -61,12 +53,12 @@ export default function WhatWeDo() {
           <Eyebrow mb={28}>What We Do</Eyebrow>
           <h1
             className="wk-section-h2"
-            style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 820, margin: "0 0 28px" }}
+            style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.2rem, 4.6vw, 60px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 900, margin: "0 0 28px" }}
           >
-            We build, launch, and grow products that help people get ahead.
+            We build, launch, and run products — and we don't stop at launch.
           </h1>
-          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 580 }}>
-            WKRLY Group is part product studio, part operator. We take ideas from a blank page to a live, growing product — and we run them for the long term.
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 600 }}>
+            Part product studio, part operator. We take an idea from blank page to live product, then run it for the long term.
           </p>
         </motion.div>
       </section>
@@ -80,12 +72,12 @@ export default function WhatWeDo() {
               className="wk-section-h2"
               style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 48px)", lineHeight: 1, color: C.heading, margin: "0 0 48px", letterSpacing: "-.02em" }}
             >
-              Three things we build.
+              Two things, held to one standard.
             </h2>
           </motion.div>
           <div
-            className="wk-three-col"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
+            className="wk-two-col"
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
           >
             {whatWeMake.map((item, i) => (
               <motion.div key={item.title} {...fadeUp(i * 0.1)} style={{ background: C.navyCard, padding: "38px 32px" }}>
@@ -94,6 +86,12 @@ export default function WhatWeDo() {
               </motion.div>
             ))}
           </div>
+          <motion.p
+            {...fadeUp(0.15)}
+            style={{ fontSize: 17, lineHeight: 1.7, color: C.body, maxWidth: 720, margin: "32px 0 0" }}
+          >
+            We build these as a focused portfolio — a deliberate set of products, each earning its place — rather than chasing every opportunity.
+          </motion.p>
         </div>
       </div>
 
@@ -127,53 +125,6 @@ export default function WhatWeDo() {
         </div>
       </div>
 
-      {/* WHAT GUIDES EVERY BUILD */}
-      <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
-        <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px" }}>
-          <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Our Standards</Eyebrow>
-            <h2
-              className="wk-section-h2"
-              style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 48px)", lineHeight: 1, color: C.heading, margin: "0 0 48px", letterSpacing: "-.02em" }}
-            >
-              What guides every build
-            </h2>
-          </motion.div>
-          <div
-            className="wk-two-col"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 22 }}
-          >
-            {principles.map((p, i) => (
-              <motion.div
-                key={p.title}
-                {...fadeUp(i * 0.08)}
-                style={{ borderLeft: `2px solid ${C.teal}`, padding: "4px 0 4px 24px" }}
-              >
-                <div style={{ ...sora, fontSize: 18, fontWeight: 600, color: C.heading, marginBottom: 8 }}>{p.title}</div>
-                <div style={{ fontSize: 15, lineHeight: 1.6, color: C.muted }}>{p.body}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* WHO WE SERVE */}
-      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-        <motion.div
-          {...fadeUp()}
-          className="wk-section-pad"
-          style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}`, maxWidth: 820, marginLeft: "auto", marginRight: "auto" }}
-        >
-          <Eyebrow mb={28}>Who We Serve</Eyebrow>
-          <p style={{ ...sora, fontWeight: 600, fontSize: "clamp(1.3rem, 2.5vw, 32px)", lineHeight: 1.3, color: C.headingAlt, marginBottom: 24, letterSpacing: "-.01em" }}>
-            The people who use what we build share one thing in common: they have goals, and they're serious about reaching them.
-          </p>
-          <p style={{ fontSize: 17, lineHeight: 1.65, color: C.body }}>
-            They might be professionals sharpening their edge, teams trying to do their best work, or individuals building something of their own. Whoever they are, our job is to help them get there faster, with less friction and more confidence.
-          </p>
-        </motion.div>
-      </div>
-
       {/* CTA */}
       <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
         <motion.div
@@ -186,28 +137,17 @@ export default function WhatWeDo() {
             className="wk-section-h2"
             style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 48px)", lineHeight: 1.05, color: C.heading, margin: "0 0 36px", letterSpacing: "-.02em" }}
           >
-            Curious about what we're building next?
+            Got a product worth building — or running better?
           </h2>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              to="/portfolio"
-              data-testid="link-wwd-portfolio"
-              style={{ border: `1px solid rgba(255,255,255,.18)`, color: C.heading, fontWeight: 600, padding: "14px 28px", borderRadius: 9, fontSize: 15, textDecoration: "none", transition: "background 150ms" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,.06)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-            >
-              Explore Our Portfolio
-            </Link>
-            <Link
-              to="/contact"
-              data-testid="link-wwd-contact"
-              style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "14px 28px", borderRadius: 9, fontSize: 15, textDecoration: "none", transition: "opacity 150ms" }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-            >
-              Get in Touch →
-            </Link>
-          </div>
+          <Link
+            to="/contact"
+            data-testid="link-wwd-contact"
+            style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "16px 32px", borderRadius: 9, fontSize: 15, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+          >
+            Get in Touch →
+          </Link>
         </motion.div>
       </div>
 

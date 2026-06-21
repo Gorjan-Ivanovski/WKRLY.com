@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const C = {
   navy: "#0a1626", navyDeep: "#08121f", navyCard: "#0c1a2b",
@@ -24,18 +23,10 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.55, delay },
 });
 
-const whyJoin = [
-  { title: "Your work has a clear purpose.", body: "Everything we build is meant to help someone get ahead. You'll see the impact of your work in the progress of real people." },
-  { title: "You'll own real outcomes.", body: "We're a company of operators. You'll have the autonomy to make decisions and the accountability that comes with it." },
-  { title: "You'll do your best work.", body: "We protect focus, value craft, and give people the room and trust to be excellent at what they do." },
-  { title: "You'll grow.", body: "We build products that help people advance — and we hold ourselves to the same standard. Your development matters to us." },
-];
-
-const culture = [
-  { title: "Small teams, big ownership.", body: "We keep teams lean so individuals can have outsized impact." },
-  { title: "Bias to ship.", body: "We learn by putting real things in front of real people." },
-  { title: "High standards, low ego.", body: "We push each other to be better and leave the politics out of it." },
-  { title: "Long-term thinking.", body: "We make decisions we'll be proud of years from now." },
+const lookFor = [
+  { lead: "Character and curiosity", rest: " over a perfect résumé." },
+  { lead: "Ownership", rest: " — people who run toward the outcome." },
+  { lead: "Craft", rest: " — a real standard for the work you put your name on." },
 ];
 
 export default function Careers() {
@@ -54,108 +45,48 @@ export default function Careers() {
           <Eyebrow mb={28}>Careers</Eyebrow>
           <h1
             className="wk-section-h2"
-            style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 760, margin: "0 0 28px" }}
+            style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 780, margin: "0 0 28px" }}
           >
-            Build products people actually need.
+            Build things that matter, with people who care.
           </h1>
-          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 560, marginBottom: 36 }}>
-            At WKRLY Group, you'll help create software that helps people reach their goals. That's the work. It matters, and we take it seriously.
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 580 }}>
+            We're a small team that holds a high bar. If that's where you do your best work, we'd like to meet you.
           </p>
-          <a
-            href="#open-roles"
-            data-testid="link-careers-see-roles"
-            style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "14px 28px", borderRadius: 9, fontSize: 15, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-          >
-            See Open Roles
-          </a>
         </motion.div>
       </section>
 
-      {/* WHY JOIN US */}
+      {/* WHAT WE LOOK FOR */}
       <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
         <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px" }}>
           <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Why Join Us</Eyebrow>
+            <Eyebrow mb={18}>What We Look For</Eyebrow>
             <h2
               className="wk-section-h2"
               style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 48px)", lineHeight: 1, color: C.heading, margin: "0 0 48px", letterSpacing: "-.02em" }}
             >
-              Why work here
+              Three things we hire for
             </h2>
           </motion.div>
           <div
-            className="wk-two-col"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
+            className="wk-three-col"
+            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
           >
-            {whyJoin.map((item, i) => (
-              <motion.div key={item.title} {...fadeUp(i * 0.09)} style={{ background: C.navyCard, padding: "32px 30px" }}>
-                <div style={{ ...sora, fontSize: 17, fontWeight: 600, color: C.heading, marginBottom: 10 }}>{item.title}</div>
-                <div style={{ fontSize: 14, lineHeight: 1.6, color: C.muted }}>{item.body}</div>
+            {lookFor.map((item, i) => (
+              <motion.div key={item.lead} {...fadeUp(i * 0.1)} style={{ background: C.navyCard, padding: "38px 32px" }}>
+                <p style={{ ...sora, fontSize: 18, fontWeight: 500, lineHeight: 1.5, color: C.headingAlt, margin: 0 }}>
+                  <span style={{ fontWeight: 700, color: C.heading }}>{item.lead}</span>{item.rest}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* CULTURE */}
+      {/* CURRENT OPENINGS */}
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <div className="wk-section-pad" style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}>
           <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Culture</Eyebrow>
-            <h2
-              className="wk-section-h2"
-              style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 48px)", lineHeight: 1, color: C.heading, margin: "0 0 48px", letterSpacing: "-.02em" }}
-            >
-              How we work
-            </h2>
-          </motion.div>
-          <div style={{ maxWidth: 680 }}>
-            {culture.map((item, i) => (
-              <motion.div
-                key={item.title}
-                {...fadeUp(i * 0.1)}
-                style={{ display: "flex", gap: 20, alignItems: "flex-start", padding: "22px 0", borderBottom: i < culture.length - 1 ? `1px solid ${C.hairline}` : undefined }}
-              >
-                <span style={{ color: C.teal, fontWeight: 700, fontSize: 18, flexShrink: 0, marginTop: 2 }}>—</span>
-                <div>
-                  <span style={{ ...sora, fontWeight: 600, color: C.heading, fontSize: 15 }}>{item.title}</span>{" "}
-                  <span style={{ color: C.body, fontSize: 15, lineHeight: 1.6 }}>{item.body}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* WHO WE'RE LOOKING FOR */}
-      <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
-        <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px" }}>
-          <div className="wk-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 64, alignItems: "start" }}>
-            <motion.div {...fadeUp()}>
-              <Eyebrow mb={18}>The Right Fit</Eyebrow>
-              <h2 style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.6rem, 2.5vw, 36px)", lineHeight: 1.1, color: C.heading, margin: 0 }}>
-                Who we're looking for
-              </h2>
-            </motion.div>
-            <motion.div {...fadeUp(0.1)} style={{ fontSize: 17, lineHeight: 1.7, color: C.body }}>
-              <p style={{ marginBottom: 20 }}>
-                We hire builders — people who are curious, accountable, and genuinely care about the quality of what they make. You'll fit in here if you're driven by outcomes, comfortable with ambiguity, and energized by the idea of helping people reach their goals through better software.
-              </p>
-              <p>
-                We welcome talented people across product, engineering, design, research, growth, and operations.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* OPEN ROLES */}
-      <div id="open-roles" style={{ maxWidth: 1240, margin: "0 auto" }}>
-        <div className="wk-section-pad" style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}>
-          <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Open Roles</Eyebrow>
+            <Eyebrow mb={18}>Current Openings</Eyebrow>
             <h2
               className="wk-section-h2"
               style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.6rem, 2.5vw, 40px)", lineHeight: 1.1, color: C.heading, margin: "0 0 32px", letterSpacing: "-.02em", maxWidth: 600 }}
@@ -166,17 +97,17 @@ export default function Careers() {
               style={{ maxWidth: 620, background: C.navyCard, border: `1px solid ${C.hairline}`, borderRadius: 14, padding: 40 }}
             >
               <p style={{ fontSize: 16, lineHeight: 1.7, color: C.body, marginBottom: 28 }}>
-                We don't have specific roles posted right now, but we're growing. If you believe you'd be a great addition to WKRLY Group, introduce yourself — we read every message.
+                We don't have specific roles posted right now, but we're growing. If you think you'd be a strong addition to WKRLY Group, introduce yourself — we read every message.
               </p>
-              <Link
-                to="/contact"
-                data-testid="link-careers-contact"
-                style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "12px 24px", borderRadius: 8, fontSize: 14, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
+              <a
+                href="mailto:info@wkrly.com"
+                data-testid="link-careers-introduce"
+                style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "13px 26px", borderRadius: 9, fontSize: 14, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
                 onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
                 onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
               >
-                Get in Touch
-              </Link>
+                Introduce Yourself → info@wkrly.com
+              </a>
             </div>
           </motion.div>
         </div>

@@ -58,10 +58,18 @@ export default function Layout({ children }: { children: ReactNode }) {
   ];
 
   const footerLinks = [
+    { label: "About", href: "/about" },
     { label: "What We Do", href: "/what-we-do" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Careers", href: "/careers" },
+    { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
+  ];
+
+  const legalLinks = [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Use", href: "/terms-of-use" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
   ];
 
   return (
@@ -215,51 +223,83 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       {/* ── FOOTER ── */}
       <footer style={{ background: "#08121f", borderTop: `1px solid ${HAIRLINE}` }}>
-        {/* Main row */}
+        {/* Main grid */}
         <div
-          className="wk-section-pad"
+          className="wk-section-pad wk-footer-grid"
           style={{
             maxWidth: 1240,
             margin: "0 auto",
-            padding: "40px 56px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 24,
-            flexWrap: "wrap",
+            padding: "56px 56px 40px",
+            display: "grid",
+            gridTemplateColumns: "1.4fr 1fr 1fr",
+            gap: 48,
           }}
         >
-          {/* Left: logo lockup */}
-          <Link
-            to="/"
-            data-testid="link-footer-logo"
-            aria-label="WKRLY"
-            style={{ textDecoration: "none", flexShrink: 0 }}
-          >
-            <WkrlyLogo height={24} />
-          </Link>
+          {/* Brand + descriptor + contact */}
+          <div style={{ maxWidth: 340 }}>
+            <Link
+              to="/"
+              data-testid="link-footer-logo"
+              aria-label="WKRLY"
+              style={{ textDecoration: "none", display: "inline-block", marginBottom: 18 }}
+            >
+              <WkrlyLogo height={24} />
+            </Link>
+            <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: 14, lineHeight: 1.65, color: "#aab9c6", margin: "0 0 20px" }}>
+              We build, launch, and operate a portfolio of SaaS products and digital properties.
+            </p>
+            <address style={{ fontStyle: "normal", fontFamily: "'Manrope', sans-serif", fontSize: 13, lineHeight: 1.7, color: "#7e93a5" }}>
+              <div>WKRLY Group LLC</div>
+              <div>30 N Gould St Ste N, Sheridan, WY 82801</div>
+              <div style={{ marginTop: 8 }}>
+                <a href="tel:+13074005868" style={{ color: "#7e93a5", textDecoration: "none" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#aab9c6")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#7e93a5")}
+                >(307) 400-5868</a>
+                {" · "}
+                <a href="mailto:info@wkrly.com" style={{ color: "#7e93a5", textDecoration: "none" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#aab9c6")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#7e93a5")}
+                >info@wkrly.com</a>
+              </div>
+            </address>
+          </div>
 
-          {/* Right: nav links */}
-          <nav style={{ display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap" }}>
-            {footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                style={{
-                  fontFamily: "'Manrope', sans-serif",
-                  fontWeight: 500,
-                  fontSize: 14,
-                  color: "#aab9c6",
-                  textDecoration: "none",
-                  transition: "color 150ms",
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#aab9c6")}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Explore */}
+          <div>
+            <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: 11, letterSpacing: ".14em", fontWeight: 600, color: "#56697a", marginBottom: 18, textTransform: "uppercase" }}>Explore</div>
+            <nav style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 500, fontSize: 14, color: "#aab9c6", textDecoration: "none", transition: "color 150ms" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#aab9c6")}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <div style={{ fontFamily: "'Manrope', sans-serif", fontSize: 11, letterSpacing: ".14em", fontWeight: 600, color: "#56697a", marginBottom: 18, textTransform: "uppercase" }}>Legal</div>
+            <nav style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  style={{ fontFamily: "'Manrope', sans-serif", fontWeight: 500, fontSize: 14, color: "#aab9c6", textDecoration: "none", transition: "color 150ms" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#aab9c6")}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {/* Hairline divider */}
@@ -282,28 +322,6 @@ export default function Layout({ children }: { children: ReactNode }) {
           <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: 12, color: "#56697a", margin: 0 }}>
             &copy; 2026 WKRLY Group LLC. All rights reserved.
           </p>
-          <div style={{ display: "flex", gap: 18 }}>
-            {[
-              { label: "Privacy", href: "/privacy-policy" },
-              { label: "Terms", href: "/terms-of-use" },
-            ].map((l) => (
-              <Link
-                key={l.href}
-                to={l.href}
-                style={{
-                  fontFamily: "'Manrope', sans-serif",
-                  fontSize: 12,
-                  color: "#56697a",
-                  textDecoration: "none",
-                  transition: "color 150ms",
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#aab9c6")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#56697a")}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </footer>
     </div>

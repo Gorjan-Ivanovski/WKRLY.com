@@ -26,47 +26,31 @@ function Eyebrow({ children, mb = 18 }: { children: React.ReactNode; mb?: number
   );
 }
 
-type IconShape = "square" | "circle" | "ring" | "bar";
-function IconTile({ shape }: { shape: IconShape }) {
-  const inner: Record<IconShape, React.CSSProperties> = {
-    square: { width: 11, height: 11, borderRadius: 3, background: C.teal },
-    circle: { width: 11, height: 11, borderRadius: "50%", background: C.teal },
-    ring:   { width: 13, height: 13, borderRadius: "50%", border: `2px solid ${C.teal}` },
-    bar:    { width: 13, height: 5,  borderRadius: 3, background: C.teal },
-  };
-  return (
-    <div style={{ width: 34, height: 34, borderRadius: 8, background: "rgba(52,214,166,.12)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
-      <div style={inner[shape]} />
-    </div>
-  );
-}
-
 // ── Data ─────────────────────────────────────────────────────────────────────
-const valueProps = [
-  { shape: "square" as IconShape, title: "Product-First",       body: "We build and operate. We don't consult." },
-  { shape: "circle" as IconShape, title: "Long-Term Operators", body: "We own and run every product we launch." },
-  { shape: "ring"   as IconShape, title: "One Mission",         body: "Every product helps professionals grow." },
-  { shape: "bar"    as IconShape, title: "Lean by Design",      body: "Small team. Big craft. No bloat." },
+const whatWeDo = [
+  { num: "01", title: "We build products.", body: "We design and ship SaaS products from the ground up — researched, validated, and built around a problem worth solving." },
+  { num: "02", title: "We launch them.",    body: "Building is half the job. We bring products to market with the positioning, infrastructure, and momentum they need to find an audience." },
+  { num: "03", title: "We grow them.",      body: "Once a product is live, we run it for years — listening, iterating, and compounding small gains into durable value." },
 ];
 
-const whatWeDo = [
-  { num: "01", title: "We build products.", body: "We design and ship SaaS products and digital experiences from the ground up — researched, validated, and crafted to solve a real problem." },
-  { num: "02", title: "We launch them.",    body: "Building is only half the work. We bring products to market with the positioning, infrastructure, and momentum they need to find their audience." },
-  { num: "03", title: "We grow them.",      body: "Once a product is live, we operate it for the long term — listening, iterating, and compounding small improvements into lasting value." },
+const audiences = [
+  { label: "Partners",         body: "Partners with a product, an idea, or a problem worth building around." },
+  { label: "Future teammates", body: "People who want to do the best work of their careers." },
+  { label: "The curious",      body: "Anyone curious about what we're building next." },
 ];
 
 const approach = [
   { num: "1", title: "Find the problem worth solving.", body: "We start with people, not features." },
   { num: "2", title: "Validate before we build.",       body: "Evidence beats assumptions." },
-  { num: "3", title: "Build with craft.",               body: "Reliable, intuitive, genuinely useful software." },
-  { num: "4", title: "Launch and grow.",                body: "We ship, learn, and keep going." },
+  { num: "3", title: "Build with craft.",               body: "Reliable, intuitive, useful software." },
+  { num: "4", title: "Launch and operate.",             body: "We ship, learn, and keep going." },
 ];
 
 const whyWKRLY = [
-  { title: "Focused mission.",   body: "Every product we touch is built to help people get ahead." },
-  { title: "Operator mindset.",  body: "We don't just launch and leave — we run our products for the long haul." },
-  { title: "Built to last.",     body: "We optimize for durable value, not short-term spikes." },
-  { title: "Quality first.",     body: "We'd rather ship one product we're proud of than ten we're not." },
+  { lead: "We operate — we don't abandon.", rest: "We run our products for years, not weeks." },
+  { lead: "We'd rather ship one product we're proud of than ten we're not.", rest: "" },
+  { lead: "Evidence before ego.", rest: "We validate with the people we're building for before we commit." },
+  { lead: "Focused by design.", rest: "A small portfolio, each product earning its place." },
 ];
 
 // ── Animation helpers ─────────────────────────────────────────────────────────
@@ -105,8 +89,8 @@ export default function Home() {
               Software for people who are{" "}
               <span style={{ color: C.teal }}>going somewhere.</span>
             </h1>
-            <p style={{ fontSize: "clamp(1rem, 2vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 580, margin: "0 auto 40px" }}>
-              WKRLY Group builds and launches digital products that help people make real progress toward their professional goals — one tool, one win, at a time.
+            <p style={{ fontSize: "clamp(1rem, 2vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 600, margin: "0 auto 40px" }}>
+              WKRLY Group builds, launches, and operates a portfolio of SaaS products — each one made to help people get further in their work.
             </p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <Link
@@ -132,30 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── VALUE PROPS ─────────────────────────────────────────────────────── */}
-      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-        <div
-          className="wk-value-props"
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: `1px solid ${C.hairline}` }}
-        >
-          {valueProps.map((vp, i) => (
-            <motion.div
-              key={vp.title}
-              {...fadeUp(i * 0.08)}
-              style={{
-                padding: "34px 30px",
-                borderRight: i < 3 ? `1px solid ${C.hairline}` : undefined,
-              }}
-            >
-              <IconTile shape={vp.shape} />
-              <div style={{ ...sora, fontSize: 16, fontWeight: 600, color: C.heading, marginBottom: 8 }}>{vp.title}</div>
-              <div style={{ fontSize: 14, lineHeight: 1.55, color: C.muted }}>{vp.body}</div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── THESIS ──────────────────────────────────────────────────────────── */}
+      {/* ── INTRO / THESIS ──────────────────────────────────────────────────── */}
       <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
         <motion.div
           {...fadeUp()}
@@ -165,10 +126,13 @@ export default function Home() {
           <Eyebrow mb={28}>The Thesis</Eyebrow>
           <p
             className="wk-thesis-p"
-            style={{ ...sora, fontWeight: 600, fontSize: "clamp(1.7rem, 3vw, 42px)", lineHeight: 1.22, color: C.headingAlt, maxWidth: 900, margin: 0, letterSpacing: "-.01em" }}
+            style={{ ...sora, fontWeight: 600, fontSize: "clamp(1.7rem, 3vw, 42px)", lineHeight: 1.22, color: C.headingAlt, maxWidth: 920, margin: "0 0 28px", letterSpacing: "-.01em" }}
           >
-            When people have better tools, they do better work —{" "}
-            <span style={{ color: C.teal }}>and better work changes lives.</span>
+            Give people better tools and they do better work.{" "}
+            <span style={{ color: C.teal }}>That's the whole thesis.</span>
+          </p>
+          <p style={{ fontSize: 17, lineHeight: 1.7, color: C.body, maxWidth: 620, margin: 0 }}>
+            WKRLY Group builds, launches, and operates a growing portfolio of SaaS products and digital properties — each designed to help professionals set a goal and actually reach it.
           </p>
         </motion.div>
       </div>
@@ -196,7 +160,7 @@ export default function Home() {
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
-              Learn how we work →
+              See how we work →
             </Link>
           </motion.div>
 
@@ -219,42 +183,57 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── THROUGHLINE ─────────────────────────────────────────────────────── */}
+      {/* ── WHO WE WORK WITH ────────────────────────────────────────────────── */}
       <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
-        <div style={{ position: "relative", maxWidth: 1240, margin: "0 auto", overflow: "hidden" }}>
-          {/* Corner glow */}
-          <div
-            aria-hidden
-            style={{ position: "absolute", top: -120, right: -80, width: 440, height: 440, background: "radial-gradient(circle, rgba(52,214,166,.14), transparent 62%)", pointerEvents: "none" }}
-          />
-          <motion.div
-            {...fadeUp()}
-            className="wk-section-pad"
-            style={{ position: "relative", padding: "90px 56px" }}
-          >
-            <Eyebrow mb={28}>The Throughline</Eyebrow>
-            <p style={{ ...sora, fontWeight: 600, fontSize: "clamp(1.5rem, 3vw, 40px)", lineHeight: 1.2, color: C.headingAlt, maxWidth: 820, margin: "0 0 24px", letterSpacing: "-.01em" }}>
-              "Everything we make shares one purpose:{" "}
-              <span style={{ color: C.teal }}>helping people achieve their professional goals.</span>"
-            </p>
-            <p style={{ fontSize: 17, lineHeight: 1.65, color: C.body, maxWidth: 560, margin: 0 }}>
-              Whether the goal is to work smarter, learn faster, grow a career, or build something of their own — our products are designed to turn intention into outcomes.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* ── OUR APPROACH ────────────────────────────────────────────────────── */}
-      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-        <div className="wk-section-pad" style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}>
+        <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px" }}>
           <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Our Approach</Eyebrow>
+            <Eyebrow mb={18}>Who We Work With</Eyebrow>
             <h2
               className="wk-section-h2"
               style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 48px)", lineHeight: 1, color: C.heading, margin: "0 0 48px", letterSpacing: "-.02em" }}
             >
-              Four steps. One obsession.
+              Three kinds of people.
             </h2>
+          </motion.div>
+          <div
+            className="wk-three-col"
+            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
+          >
+            {audiences.map((a, i) => (
+              <motion.div key={a.label} {...fadeUp(i * 0.1)} style={{ background: C.navyCard, padding: "38px 32px" }}>
+                <div style={{ ...manrope, fontSize: 12, letterSpacing: ".14em", fontWeight: 600, color: C.teal, marginBottom: 14, textTransform: "uppercase" }}>{a.label}</div>
+                <div style={{ ...sora, fontSize: 17, fontWeight: 500, lineHeight: 1.5, color: C.headingAlt }}>{a.body}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── HOW WE WORK ─────────────────────────────────────────────────────── */}
+      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+        <div className="wk-section-pad" style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}>
+          <motion.div
+            {...fadeUp()}
+            style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 16 }}
+          >
+            <div>
+              <Eyebrow mb={18}>How We Work</Eyebrow>
+              <h2
+                className="wk-section-h2"
+                style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 4vw, 48px)", lineHeight: 1, color: C.heading, margin: 0, letterSpacing: "-.02em" }}
+              >
+                Four steps. One obsession.
+              </h2>
+            </div>
+            <Link
+              to="/what-we-do"
+              data-testid="link-see-approach"
+              style={{ fontSize: 14, fontWeight: 600, color: C.teal, textDecoration: "none", whiteSpace: "nowrap", transition: "opacity 150ms" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              See our approach in detail →
+            </Link>
           </motion.div>
           <div
             className="wk-two-col"
@@ -295,12 +274,12 @@ export default function Home() {
           >
             {whyWKRLY.map((item, i) => (
               <motion.div
-                key={item.title}
+                key={item.lead}
                 {...fadeUp(i * 0.08)}
                 style={{ borderLeft: `2px solid ${C.teal}`, padding: "4px 0 4px 24px" }}
               >
-                <div style={{ ...sora, fontSize: 18, fontWeight: 600, color: C.heading, marginBottom: 8 }}>{item.title}</div>
-                <div style={{ fontSize: 15, lineHeight: 1.6, color: C.muted }}>{item.body}</div>
+                <div style={{ ...sora, fontSize: 18, fontWeight: 600, lineHeight: 1.4, color: C.heading, marginBottom: item.rest ? 8 : 0 }}>{item.lead}</div>
+                {item.rest && <div style={{ fontSize: 15, lineHeight: 1.6, color: C.muted }}>{item.rest}</div>}
               </motion.div>
             ))}
           </div>
@@ -326,8 +305,8 @@ export default function Home() {
             >
               Have an idea, a partnership,<br />or a question?
             </h2>
-            <p style={{ fontSize: 18, lineHeight: 1.6, color: C.body, maxWidth: 540, margin: "0 auto 36px" }}>
-              Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
+            <p style={{ fontSize: 18, lineHeight: 1.6, color: C.body, maxWidth: 560, margin: "0 auto 36px" }}>
+              Potential partner, future teammate, or just curious about what we're building — we'd like to hear from you.
             </p>
             <Link
               to="/contact"

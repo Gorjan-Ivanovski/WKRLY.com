@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MapPin, Phone, Mail } from "lucide-react";
 
@@ -31,7 +30,6 @@ const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Please enter a valid email"),
   company: z.string().optional(),
-  reason: z.string().min(1, "Please select a reason"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   privacyPolicy: z.boolean().refine((val) => val === true, {
     message: "You must agree to the Privacy Policy",
@@ -54,7 +52,7 @@ export default function Contact() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", company: "", reason: "", message: "", privacyPolicy: false },
+    defaultValues: { name: "", email: "", company: "", message: "", privacyPolicy: false },
   });
 
   async function onSubmit(data: ContactFormValues) {
@@ -64,7 +62,7 @@ export default function Contact() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: data.name, email: data.email, company: data.company, reason: data.reason, message: data.message }),
+        body: JSON.stringify({ name: data.name, email: data.email, company: data.company, message: data.message }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -98,7 +96,7 @@ export default function Contact() {
             Let's talk.
           </h1>
           <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 520 }}>
-            Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
+            Potential partner, future teammate, or just curious about what we're building — we'd like to hear from you.
           </p>
         </motion.div>
       </section>
@@ -187,30 +185,6 @@ export default function Contact() {
 
                       <FormField
                         control={form.control}
-                        name="reason"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>I'm reaching out about… <span style={{ color: C.teal }}>*</span></FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger data-testid="select-reason">
-                                  <SelectValue placeholder="Select a topic" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="partnership">Partnership</SelectItem>
-                                <SelectItem value="careers">Careers</SelectItem>
-                                <SelectItem value="press">Press & Media</SelectItem>
-                                <SelectItem value="general">General Enquiry</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
                         name="message"
                         render={({ field }) => (
                           <FormItem>
@@ -248,14 +222,19 @@ export default function Contact() {
                         <p className="text-sm text-destructive" data-testid="text-submit-error">{submitError}</p>
                       )}
 
-                      <button
-                        type="submit"
-                        disabled={submitting}
-                        data-testid="button-submit"
-                        style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "14px 32px", borderRadius: 9, fontSize: 15, border: "none", cursor: submitting ? "not-allowed" : "pointer", opacity: submitting ? 0.6 : 1, transition: "opacity 150ms", display: "inline-block" }}
-                      >
-                        {submitting ? "Sending…" : "Send Message"}
-                      </button>
+                      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                        <button
+                          type="submit"
+                          disabled={submitting}
+                          data-testid="button-submit"
+                          style={{ ...sora, alignSelf: "flex-start", background: C.teal, color: "#08121f", fontWeight: 700, padding: "14px 32px", borderRadius: 9, fontSize: 15, border: "none", cursor: submitting ? "not-allowed" : "pointer", opacity: submitting ? 0.6 : 1, transition: "opacity 150ms", display: "inline-block" }}
+                        >
+                          {submitting ? "Sending…" : "Send Message"}
+                        </button>
+                        <p style={{ fontSize: 13, lineHeight: 1.6, color: C.muted, margin: 0 }}>
+                          We read every message and aim to reply within two business days.
+                        </p>
+                      </div>
                     </form>
                   </Form>
                 </div>

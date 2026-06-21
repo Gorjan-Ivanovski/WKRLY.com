@@ -8,16 +8,8 @@ const contactSchema = z.object({
   name: z.string().min(1),
   email: z.string().email(),
   company: z.string().optional(),
-  reason: z.enum(["partnership", "careers", "press", "general"]),
   message: z.string().min(10),
 });
-
-const reasonLabels: Record<string, string> = {
-  partnership: "Partnership",
-  careers: "Careers",
-  press: "Press & Media",
-  general: "General Enquiry",
-};
 
 router.post("/contact", async (req: Request, res: Response) => {
   const parsed = contactSchema.safeParse(req.body);
@@ -26,12 +18,11 @@ router.post("/contact", async (req: Request, res: Response) => {
     return;
   }
 
-  const { name, email, company, reason, message } = parsed.data;
-  const reasonLabel = reasonLabels[reason] ?? reason;
+  const { name, email, company, message } = parsed.data;
 
   // Always log the submission so nothing is lost regardless of email delivery
   req.log.info(
-    { submission: { name, email, company, reason: reasonLabel, message } },
+    { submission: { name, email, company, message } },
     "Contact form submission received"
   );
 
@@ -46,7 +37,6 @@ router.post("/contact", async (req: Request, res: Response) => {
         <tr><td style="padding: 8px 0; font-weight: bold; width: 140px; color: #555;">Name</td><td style="padding: 8px 0;">${name}</td></tr>
         <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Email</td><td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td></tr>
         ${company ? `<tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Company</td><td style="padding: 8px 0;">${company}</td></tr>` : ""}
-        <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Topic</td><td style="padding: 8px 0;">${reasonLabel}</td></tr>
       </table>
       <div style="margin-top: 20px;">
         <p style="font-weight: bold; color: #555; margin-bottom: 8px;">Message</p>
@@ -77,7 +67,7 @@ router.post("/contact", async (req: Request, res: Response) => {
         from: fromAddress,
         to: [notificationTo],
         reply_to: email,
-        subject: `[Contact] ${reasonLabel} from ${name}`,
+        subject: `[Contact] New message from ${name}`,
         html: notificationHtml,
       }),
     }),

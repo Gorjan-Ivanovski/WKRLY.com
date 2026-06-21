@@ -25,12 +25,12 @@ const fadeUp = (delay = 0) => ({
 });
 
 const beliefs = [
-  { title: "People come first.", body: "Every decision starts with the person on the other side of the screen. Their goals are the goals." },
-  { title: "Progress over noise.", body: "We don't build for engagement metrics or vanity. We build to help people do, finish, and grow." },
-  { title: "Evidence over opinion.", body: "We test our assumptions, listen to real users, and let what we learn shape what we build." },
-  { title: "Craft is non-negotiable.", body: "Reliable, thoughtful, well-made software is a sign of respect for the people who use it." },
-  { title: "We're here for the long game.", body: "We build products we intend to operate and improve for years, not abandon after launch." },
-  { title: "Ownership at every level.", body: "We act like owners — accountable, resourceful, and invested in the outcome." },
+  { title: "People come first.", body: "Every decision starts with the person on the other side of the screen." },
+  { title: "Progress over noise.", body: "We don't build for vanity metrics. We build to help people do, finish, and grow." },
+  { title: "Evidence over opinion.", body: "We test our assumptions, listen to the people who use our products, and let what we learn shape what we build." },
+  { title: "Craft is non-negotiable.", body: "Reliable, thoughtful, well-made software is a form of respect." },
+  { title: "We're here for the long game.", body: "We build products we intend to run and improve for years." },
+  { title: "Ownership at every level.", body: "We act like owners — accountable, resourceful, invested in the outcome." },
 ];
 
 const values = [
@@ -58,10 +58,10 @@ export default function About() {
             className="wk-section-h2"
             style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 760, margin: "0 0 28px" }}
           >
-            We exist to help people reach further.
+            We take ambition seriously.
           </h1>
           <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 580 }}>
-            WKRLY Group is a product company built on a simple belief: the right tool, at the right moment, can change the trajectory of someone's work — and their life.
+            WKRLY Group is a product company built on a simple idea: the right tool, at the right moment, can change the trajectory of someone's work.
           </p>
         </motion.div>
       </section>
@@ -78,15 +78,15 @@ export default function About() {
             </motion.div>
             <motion.div {...fadeUp(0.1)} style={{ fontSize: 17, lineHeight: 1.7, color: C.body }}>
               <p style={{ marginBottom: 20 }}>
-                WKRLY Group was founded to build software that takes ambition seriously. We saw a gap between what people want to achieve in their professional lives and the tools available to help them get there. Too many products are built to capture attention. We set out to build products that create progress.
+                We saw a gap between what people want to achieve in their working lives and the tools built to help them get there. Too many products are built to capture attention. We set out to build products that create progress.
               </p>
               <p style={{ marginBottom: 20 }}>
-                Today, we develop, launch, and operate a portfolio of SaaS products and digital properties — each one designed around a single question:{" "}
-                <span style={{ color: C.heading, fontWeight: 600 }}>Does this genuinely help someone move closer to their goals?</span>{" "}
+                Today we develop, launch, and operate a portfolio of SaaS products and digital properties, each held to one question:{" "}
+                <span style={{ color: C.heading, fontWeight: 600 }}>does this move someone closer to what they're trying to do?</span>{" "}
                 If the answer is yes, we build it. If it isn't, we don't.
               </p>
               <p>
-                We're a company of builders, designers, researchers, and operators who care about craft and outcomes in equal measure. We move quickly, we hold ourselves to a high standard, and we measure our success by the success of the people who use what we make.
+                We're builders, designers, researchers, and operators who care about craft and outcomes in equal measure. We move quickly, hold a high bar, and measure our success by the success of the people who use what we make.
               </p>
             </motion.div>
           </div>
@@ -106,13 +106,13 @@ export default function About() {
             <motion.div {...fadeUp()} style={{ background: C.navyCard, padding: 40 }}>
               <Eyebrow mb={20}>Our Mission</Eyebrow>
               <p style={{ ...sora, fontSize: "clamp(1rem, 1.8vw, 19px)", fontWeight: 600, lineHeight: 1.5, color: C.heading, margin: 0 }}>
-                To build digital products that help people achieve their professional goals — and to make meaningful progress feel within reach for everyone who uses them.
+                To build software that helps people achieve their professional goals — and make progress feel within reach for everyone who uses it.
               </p>
             </motion.div>
             <motion.div {...fadeUp(0.1)} style={{ background: C.navyCard, padding: 40 }}>
               <Eyebrow mb={20}>Our Vision</Eyebrow>
-              <p style={{ fontSize: "clamp(1rem, 1.5vw, 17px)", lineHeight: 1.65, color: C.body, margin: 0 }}>
-                A world where ambitious people are never held back by their tools. Where setting a goal and reaching it is supported by software that's genuinely on their side.
+              <p style={{ ...sora, fontSize: "clamp(1rem, 1.8vw, 19px)", fontWeight: 600, lineHeight: 1.5, color: C.heading, margin: 0 }}>
+                A world where ambitious people are never held back by their tools.
               </p>
             </motion.div>
           </div>
@@ -194,7 +194,7 @@ export default function About() {
               onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,.06)")}
               onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
-              See Open Roles
+              See Careers
             </Link>
             <Link
               to="/contact"
