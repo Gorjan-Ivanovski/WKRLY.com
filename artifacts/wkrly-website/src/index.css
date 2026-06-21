@@ -1,4 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+
+@keyframes wk-glow-breathe {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.85; }
+}
+.wk-hero-glow {
+  animation: wk-glow-breathe 8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wk-hero-glow { animation: none !important; opacity: 0.65; }
+}
+
+/* Homepage responsive grid overrides */
+@media (max-width: 1024px) {
+  .wk-value-props  { grid-template-columns: repeat(2, 1fr) !important; }
+  .wk-three-col    { grid-template-columns: 1fr !important; }
+  .wk-two-col      { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 640px) {
+  .wk-section-pad  { padding-left: 24px !important; padding-right: 24px !important; }
+  .wk-hero-h1      { font-size: 2.25rem !important; }
+  .wk-section-h2   { font-size: 2rem !important; }
+  .wk-cta-h2       { font-size: 2rem !important; }
+  .wk-thesis-p     { font-size: 1.6rem !important; }
+  .wk-value-props  { grid-template-columns: 1fr !important; }
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
