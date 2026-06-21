@@ -290,6 +290,7 @@ export default function Contact() {
                   <MapPin size={15} color={C.teal} style={{ flexShrink: 0, marginTop: 4 }} />
                   <div>
                     <div style={{ color: C.heading, fontWeight: 600, marginBottom: 4 }}>WKRLY Group LLC</div>
+                    <div>30 N Gould St Ste N</div>
                     <div>Sheridan, WY 82801</div>
                     <div>United States</div>
                   </div>

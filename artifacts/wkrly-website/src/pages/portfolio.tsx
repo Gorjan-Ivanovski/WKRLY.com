@@ -134,7 +134,7 @@ export default function Portfolio() {
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
-              Want to be first to know? Get in Touch →
+              Want to be the first to know? Get in Touch →
             </Link>
           </motion.div>
         </div>

@@ -280,7 +280,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           }}
         >
           <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: 12, color: "#56697a", margin: 0 }}>
-            &copy; 2026 WKRLY Group LLC
+            &copy; 2026 WKRLY Group LLC. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 18 }}>
             {[

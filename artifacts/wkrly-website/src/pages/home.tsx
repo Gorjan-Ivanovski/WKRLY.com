@@ -51,8 +51,8 @@ const valueProps = [
 
 const whatWeDo = [
   { num: "01", title: "We build products.", body: "We design and ship SaaS products and digital experiences from the ground up — researched, validated, and crafted to solve a real problem." },
-  { num: "02", title: "We launch them.",    body: "Building is half the work. We bring products to market with the positioning, infrastructure, and momentum to find their audience." },
-  { num: "03", title: "We grow them.",      body: "Once it's live, we operate for the long term — listening, iterating, and compounding small wins into lasting value." },
+  { num: "02", title: "We launch them.",    body: "Building is only half the work. We bring products to market with the positioning, infrastructure, and momentum they need to find their audience." },
+  { num: "03", title: "We grow them.",      body: "Once a product is live, we operate it for the long term — listening, iterating, and compounding small improvements into lasting value." },
 ];
 
 const approach = [
@@ -64,7 +64,7 @@ const approach = [
 
 const whyWKRLY = [
   { title: "Focused mission.",   body: "Every product we touch is built to help people get ahead." },
-  { title: "Operator mindset.",  body: "We don't launch and leave — we run our products for the long haul." },
+  { title: "Operator mindset.",  body: "We don't just launch and leave — we run our products for the long haul." },
   { title: "Built to last.",     body: "We optimize for durable value, not short-term spikes." },
   { title: "Quality first.",     body: "We'd rather ship one product we're proud of than ten we're not." },
 ];
@@ -106,7 +106,7 @@ export default function Home() {
               <span style={{ color: C.teal }}>going somewhere.</span>
             </h1>
             <p style={{ fontSize: "clamp(1rem, 2vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 580, margin: "0 auto 40px" }}>
-              WKRLY Group builds and runs digital products that turn professional ambition into real progress — one tool, one win at a time.
+              WKRLY Group builds and launches digital products that help people make real progress toward their professional goals — one tool, one win, at a time.
             </p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <Link
@@ -125,7 +125,7 @@ export default function Home() {
                 onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,.06)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
               >
-                See the Portfolio
+                See Our Portfolio
               </Link>
             </div>
           </motion.div>
@@ -327,7 +327,7 @@ export default function Home() {
               Have an idea, a partnership,<br />or a question?
             </h2>
             <p style={{ fontSize: 18, lineHeight: 1.6, color: C.body, maxWidth: 540, margin: "0 auto 36px" }}>
-              Whether you're a potential partner, a future teammate, or just curious about what we're building — we'd love to hear from you.
+              Whether you're a potential partner, a future teammate, or simply curious about what we're building, we'd love to hear from you.
             </p>
             <Link
               to="/contact"
