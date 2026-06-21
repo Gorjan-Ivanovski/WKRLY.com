@@ -3,51 +3,32 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import CookieBanner from "./cookie-banner";
+import logoLightSrc from "@assets/wkrly-logo-light_1782025718093.svg";
+import logoMarkSrc from "@assets/wkrly-mark_1782025718094.svg";
 
 const TEAL = "#34d6a6";
 const HAIRLINE = "rgba(255,255,255,.07)";
 
-function WChevronMark({ size = 28 }: { size?: number }) {
+function WkrlyLogo({ height = 28 }: { height?: number }) {
   return (
-    <svg
-      aria-hidden
-      width={size}
-      height={size}
-      viewBox="0 0 28 28"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: "block", flexShrink: 0 }}
-    >
-      <polyline
-        points="4,8 10,20 14,12 18,20 24,8"
-        stroke={TEAL}
-        strokeWidth="2.5"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
+    <img
+      src={logoLightSrc}
+      alt="WKRLY"
+      height={height}
+      style={{ display: "block", height, width: "auto", flexShrink: 0 }}
+    />
   );
 }
 
-function WkrlyLogo({ markSize = 28 }: { markSize?: number }) {
-  const fontSize = markSize === 24 ? 15 : 17;
+function WkrlyMark({ size = 28 }: { size?: number }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-      <WChevronMark size={markSize} />
-      <span
-        style={{
-          fontFamily: "'Sora', sans-serif",
-          fontWeight: 700,
-          fontSize,
-          letterSpacing: "0.04em",
-          color: "#ffffff",
-          lineHeight: 1,
-        }}
-      >
-        WKRLY
-      </span>
-    </div>
+    <img
+      src={logoMarkSrc}
+      alt=""
+      aria-hidden
+      height={size}
+      style={{ display: "block", height: size, width: "auto", flexShrink: 0 }}
+    />
   );
 }
 
@@ -118,7 +99,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             aria-label="WKRLY"
             style={{ textDecoration: "none", flexShrink: 0 }}
           >
-            <WkrlyLogo markSize={28} />
+            <WkrlyLogo height={28} />
           </Link>
 
           {/* Desktop nav */}
@@ -255,7 +236,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             aria-label="WKRLY"
             style={{ textDecoration: "none", flexShrink: 0 }}
           >
-            <WkrlyLogo markSize={24} />
+            <WkrlyLogo height={24} />
           </Link>
 
           {/* Right: nav links */}
