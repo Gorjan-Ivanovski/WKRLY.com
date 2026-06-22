@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SeoManager } from "@/lib/seo";
 import NotFound from "@/pages/not-found";
 import Layout from "@/components/layout";
 import Home from "@/pages/home";
@@ -43,6 +44,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <BrowserRouter basename={baseName}>
+          <SeoManager />
           <AppRoutes />
         </BrowserRouter>
         <Toaster />
