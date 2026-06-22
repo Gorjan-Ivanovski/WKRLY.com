@@ -24,20 +24,11 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.55, delay },
 });
 
-const beliefs = [
-  { title: "People come first.", body: "Every decision starts with the person on the other side of the screen." },
-  { title: "Progress over noise.", body: "We don't build for vanity metrics. We build to help people do, finish, and grow." },
-  { title: "Evidence over opinion.", body: "We test our assumptions, listen to the people who use our products, and let what we learn shape what we build." },
-  { title: "Craft is non-negotiable.", body: "Reliable, thoughtful, well-made software is a form of respect." },
-  { title: "We're here for the long game.", body: "We build products we intend to run and improve for years." },
-  { title: "Ownership at every level.", body: "We act like owners — accountable, resourceful, invested in the outcome." },
-];
-
-const values = [
-  "We ship, then we listen, then we improve.",
-  "We say no to good ideas so we can do great work on the right ones.",
-  "We treat our users' time, attention, and trust as things to be earned.",
-  "We hire for character and curiosity, and we give people room to do their best work.",
+const operate = [
+  { lead: "Ship, then listen, then improve.", rest: "We do not wait for perfection; we launch, learn, and iterate with precision." },
+  { lead: "Discipline over distraction.", rest: "We say no to good ideas so we have the bandwidth to do great work on the right ones." },
+  { lead: "Trust is earned daily.", rest: "We treat our users' time, attention, and trust as our most valuable assets—every feature must justify its existence." },
+  { lead: "Craft and outcomes in equal measure.", rest: "We hold a high bar for code, design, and utility, and we measure our success by the success of the people who use what we build." },
 ];
 
 export default function About() {
@@ -53,119 +44,65 @@ export default function About() {
           className="wk-section-pad"
           style={{ maxWidth: 1240, margin: "0 auto", padding: "0 56px" }}
         >
-          <Eyebrow mb={28}>About</Eyebrow>
+          <Eyebrow mb={28}>About WKRLY Group</Eyebrow>
           <h1
             className="wk-section-h2"
             style={{ ...sora, fontWeight: 700, fontSize: "clamp(2.4rem, 5vw, 64px)", lineHeight: 1.06, letterSpacing: "-.03em", color: C.heading, maxWidth: 760, margin: "0 0 28px" }}
           >
             We take ambition seriously.
           </h1>
-          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 580 }}>
-            WKRLY Group is a product company built on a simple idea: the right tool, at the right moment, can change the trajectory of someone's work.
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.65, color: C.body, maxWidth: 640 }}>
+            WKRLY is a product company built on a single, clear thesis: the right tool, introduced at the right moment, can fundamentally change the trajectory of someone's professional work.
           </p>
         </motion.div>
       </section>
 
-      {/* OUR STORY */}
+      {/* OUR PERSPECTIVE */}
       <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
         <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px" }}>
           <div className="wk-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 64, alignItems: "start" }}>
             <motion.div {...fadeUp()}>
-              <Eyebrow mb={18}>Our Story</Eyebrow>
-              <h2 style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.6rem, 2.5vw, 36px)", lineHeight: 1.1, color: C.heading, margin: 0 }}>
-                Why we exist
-              </h2>
+              <Eyebrow mb={0}>Our Perspective</Eyebrow>
             </motion.div>
-            <motion.div {...fadeUp(0.1)} style={{ fontSize: 17, lineHeight: 1.7, color: C.body }}>
-              <p style={{ marginBottom: 20 }}>
-                We saw a gap between what people want to achieve in their working lives and the tools built to help them get there. Too many products are built to capture attention. We set out to build products that create progress.
-              </p>
-              <p style={{ marginBottom: 20 }}>
-                Today we develop, launch, and operate a portfolio of SaaS products and digital properties, each held to one question:{" "}
-                <span style={{ color: C.heading, fontWeight: 600 }}>does this move someone closer to what they're trying to do?</span>{" "}
-                If the answer is yes, we build it. If it isn't, we don't.
-              </p>
-              <p>
-                We're builders, designers, researchers, and operators who care about craft and outcomes in equal measure. We move quickly, hold a high bar, and measure our success by the success of the people who use what we make.
+            <motion.div {...fadeUp(0.1)}>
+              <p style={{ ...sora, fontWeight: 500, fontSize: "clamp(1.2rem, 2vw, 26px)", lineHeight: 1.5, color: C.headingAlt, margin: 0, letterSpacing: "-.01em" }}>
+                We observed a persistent gap between what professionals aim to achieve and the tools available to help them get there. Too many products are engineered to extract attention. We engineer ours to deliver tangible progress.
               </p>
             </motion.div>
           </div>
         </div>
       </div>
 
-      {/* MISSION & VISION */}
+      {/* OUR FOUNDATION */}
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <div className="wk-section-pad" style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}>
-          <motion.div {...fadeUp()} style={{ marginBottom: 48 }}>
-            <Eyebrow mb={18}>Purpose</Eyebrow>
-          </motion.div>
-          <div
-            className="wk-two-col"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
-          >
-            <motion.div {...fadeUp()} style={{ background: C.navyCard, padding: 40 }}>
-              <Eyebrow mb={20}>Our Mission</Eyebrow>
-              <p style={{ ...sora, fontSize: "clamp(1rem, 1.8vw, 19px)", fontWeight: 600, lineHeight: 1.5, color: C.heading, margin: 0 }}>
-                To build software that helps people achieve their professional goals — and make progress feel within reach for everyone who uses it.
-              </p>
+          <div className="wk-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 64, alignItems: "start" }}>
+            <motion.div {...fadeUp()}>
+              <Eyebrow mb={0}>Our Foundation</Eyebrow>
             </motion.div>
-            <motion.div {...fadeUp(0.1)} style={{ background: C.navyCard, padding: 40 }}>
-              <Eyebrow mb={20}>Our Vision</Eyebrow>
-              <p style={{ ...sora, fontSize: "clamp(1rem, 1.8vw, 19px)", fontWeight: 600, lineHeight: 1.5, color: C.heading, margin: 0 }}>
-                A world where ambitious people are never held back by their tools.
+            <motion.div {...fadeUp(0.1)}>
+              <p style={{ fontSize: 17, lineHeight: 1.7, color: C.body, margin: 0 }}>
+                Our team brings over 20 years of experience launching and scaling SaaS and digital products across both large enterprises and early-stage startups. This dual perspective gives us a rare combination of institutional discipline and builder agility—we understand the rigor required at scale, yet we move with the speed and intentionality of a focused founding team.
               </p>
             </motion.div>
           </div>
         </div>
       </div>
 
-      {/* WHAT WE BELIEVE */}
+      {/* HOW WE OPERATE */}
       <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
         <div className="wk-section-pad" style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px" }}>
           <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Our Beliefs</Eyebrow>
-            <h2
-              className="wk-section-h2"
-              style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 48px)", lineHeight: 1, color: C.heading, margin: "0 0 48px", letterSpacing: "-.02em" }}
-            >
-              What we believe
-            </h2>
+            <Eyebrow mb={40}>How We Operate</Eyebrow>
           </motion.div>
           <div
-            className="wk-three-col"
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
+            className="wk-two-col"
+            style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 1, background: C.hairline, border: `1px solid ${C.hairline}`, borderRadius: 14, overflow: "hidden" }}
           >
-            {beliefs.map((b, i) => (
-              <motion.div key={b.title} {...fadeUp(i * 0.07)} style={{ background: C.navyCard, padding: "32px 30px" }}>
-                <div style={{ ...sora, fontSize: 16, fontWeight: 600, color: C.heading, marginBottom: 10 }}>{b.title}</div>
-                <div style={{ fontSize: 14, lineHeight: 1.6, color: C.muted }}>{b.body}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* VALUES IN PRACTICE */}
-      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-        <div className="wk-section-pad" style={{ padding: "90px 56px", borderTop: `1px solid ${C.hairline}` }}>
-          <motion.div {...fadeUp()}>
-            <Eyebrow mb={18}>Values in Practice</Eyebrow>
-            <h2
-              className="wk-section-h2"
-              style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3vw, 42px)", lineHeight: 1.05, color: C.heading, margin: "0 0 40px", letterSpacing: "-.02em" }}
-            >
-              How we actually operate
-            </h2>
-          </motion.div>
-          <div style={{ maxWidth: 680 }}>
-            {values.map((value, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.1)}
-                style={{ display: "flex", gap: 20, alignItems: "flex-start", padding: "22px 0", borderBottom: i < values.length - 1 ? `1px solid ${C.hairline}` : undefined }}
-              >
-                <span style={{ color: C.teal, fontWeight: 700, fontSize: 18, flexShrink: 0, marginTop: 2 }}>—</span>
-                <p style={{ fontSize: 17, lineHeight: 1.6, color: C.body, margin: 0 }}>{value}</p>
+            {operate.map((item, i) => (
+              <motion.div key={item.lead} {...fadeUp(i * 0.08)} style={{ background: C.navyCard, padding: "34px 32px" }}>
+                <div style={{ ...sora, fontSize: 18, fontWeight: 600, color: C.heading, marginBottom: 10 }}>{item.lead}</div>
+                <div style={{ fontSize: 15, lineHeight: 1.65, color: C.muted }}>{item.rest}</div>
               </motion.div>
             ))}
           </div>
@@ -173,39 +110,25 @@ export default function About() {
       </div>
 
       {/* CTA */}
-      <div style={{ background: C.navyDeep, borderTop: `1px solid ${C.hairline}` }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <motion.div
           {...fadeUp()}
           className="wk-section-pad"
-          style={{ maxWidth: 1240, margin: "0 auto", padding: "90px 56px", textAlign: "center" }}
+          style={{ position: "relative", padding: "96px 56px", borderTop: `1px solid ${C.hairline}`, textAlign: "center", overflow: "hidden" }}
         >
-          <Eyebrow mb={24}>Join Us</Eyebrow>
-          <h2
-            className="wk-section-h2"
-            style={{ ...sora, fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 48px)", lineHeight: 1.05, color: C.heading, margin: "0 0 36px", letterSpacing: "-.02em" }}
+          <div
+            aria-hidden
+            style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 0%, rgba(52,214,166,.12), transparent 60%)", pointerEvents: "none" }}
+          />
+          <Link
+            to="/contact"
+            data-testid="link-about-stay-connected"
+            style={{ position: "relative", ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "17px 36px", borderRadius: 9, fontSize: 16, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
           >
-            Want to build with us — or for us?
-          </h2>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              to="/careers"
-              data-testid="link-about-see-roles"
-              style={{ border: `1px solid rgba(255,255,255,.18)`, color: C.heading, fontWeight: 600, padding: "14px 28px", borderRadius: 9, fontSize: 15, textDecoration: "none", transition: "background 150ms" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,.06)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
-            >
-              See Careers
-            </Link>
-            <Link
-              to="/contact"
-              data-testid="link-about-get-in-touch"
-              style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "14px 28px", borderRadius: 9, fontSize: 15, textDecoration: "none", transition: "opacity 150ms" }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-            >
-              Get in Touch →
-            </Link>
-          </div>
+            Stay Connected with Our Work
+          </Link>
         </motion.div>
       </div>
 

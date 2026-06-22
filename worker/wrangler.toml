@@ -11,9 +11,8 @@ routes = [
 
 [vars]
 CONTACT_NOTIFICATION_EMAIL = "info@wkrly.com"
-# Use a sender on a domain you've verified in Resend, e.g. "WKRLY Group <hello@wkrly.com>".
-# Defaults to Resend's sandbox sender (only delivers to your own Resend account email).
-RESEND_FROM_ADDRESS = "WKRLY Group <onboarding@resend.dev>"
+# Sender on the Resend-verified wkrly.com domain.
+RESEND_FROM_ADDRESS = "WKRLY Group <info@wkrly.com>"
 
 # RESEND_API_KEY is a secret — do NOT put it here.
 # Set it with:  wrangler secret put RESEND_API_KEY

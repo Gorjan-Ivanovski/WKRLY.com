@@ -45,7 +45,7 @@ export default function Insights() {
             Notes from the work.
           </h1>
           <p style={{ fontSize: "clamp(1rem, 1.8vw, 20px)", lineHeight: 1.7, color: C.body, maxWidth: 640 }}>
-            This is where we'll share what we learn as we build, launch, and run products — on craft, product thinking, and the discipline of operating for the long term. Check back, or get in touch to follow along.
+            Perspectives from our team on building, launching, and operating products — on craft, product thinking, and the discipline of running software for the long term. Subscribe to follow along.
           </p>
         </motion.div>
       </section>
@@ -65,18 +65,18 @@ export default function Insights() {
           <div
             style={{ maxWidth: 560, background: C.navyCard, border: `1px dashed ${C.hairline}`, borderRadius: 14, padding: "56px 40px", textAlign: "center" }}
           >
-            <p style={{ ...sora, fontSize: 17, fontWeight: 600, color: C.heading, marginBottom: 12 }}>We're just getting started.</p>
+            <p style={{ ...sora, fontSize: 17, fontWeight: 600, color: C.heading, marginBottom: 12 }}>Get our perspectives.</p>
             <p style={{ fontSize: 15, lineHeight: 1.65, color: C.body, marginBottom: 28 }}>
-              Our first pieces are on the way — check back soon, or get in touch to follow along.
+              Subscribe for updates from the WKRLY team.
             </p>
             <Link
               to="/contact"
-              data-testid="link-insights-get-in-touch"
+              data-testid="link-insights-subscribe"
               style={{ ...sora, background: C.teal, color: "#08121f", fontWeight: 700, padding: "12px 24px", borderRadius: 8, fontSize: 14, textDecoration: "none", transition: "opacity 150ms", display: "inline-block" }}
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
             >
-              Get in Touch
+              Subscribe for Updates
             </Link>
           </div>
         </motion.div>
