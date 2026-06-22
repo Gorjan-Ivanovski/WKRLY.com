@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
 
+/* The site is dark-themed via inline styles; keep the document background navy
+   so iOS overscroll / the dynamic toolbar never reveal the default white. */
+html, body { background-color: #0a1626; }
+
 @keyframes wk-glow-breathe {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0.85; }

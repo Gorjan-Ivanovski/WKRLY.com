@@ -38,12 +38,16 @@ export default function CookieBanner() {
           className="fixed bottom-0 inset-x-0 z-50 p-4 md:p-6"
         >
           <div className="container mx-auto max-w-4xl">
-            <div className="bg-background border border-border rounded-xl shadow-lg px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <p className="flex-1 text-sm text-muted-foreground">
+            <div
+              className="px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              style={{ background: "#0c1a2b", border: "1px solid rgba(255,255,255,.09)", borderRadius: 14, boxShadow: "0 16px 48px rgba(0,0,0,.5)" }}
+            >
+              <p className="flex-1 text-sm" style={{ fontFamily: "'Manrope', sans-serif", color: "#92a6b8" }}>
                 We use cookies to improve your experience on our site. By continuing, you agree to our use of cookies.{" "}
                 <Link
                   to="/cookie-policy"
-                  className="underline underline-offset-2 text-foreground hover:text-primary transition-colors"
+                  className="underline underline-offset-2 transition-colors"
+                  style={{ color: "#eef3f7" }}
                 >
                   Learn more
                 </Link>
@@ -52,14 +56,16 @@ export default function CookieBanner() {
               <div className="flex items-center gap-3 shrink-0">
                 <button
                   onClick={handleDecline}
-                  className="h-9 px-4 rounded-md border border-border text-sm font-medium text-foreground/80 hover:bg-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="h-9 px-4 rounded-md text-sm font-medium transition-colors focus-visible:outline-none"
+                  style={{ border: "1px solid rgba(255,255,255,.18)", color: "#cdd8e1", background: "transparent" }}
                   data-testid="button-cookie-decline"
                 >
                   Decline
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="h-9 px-4 rounded-md bg-primary text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="h-9 px-4 rounded-md text-sm transition-opacity focus-visible:outline-none"
+                  style={{ background: "#34d6a6", color: "#08121f", fontFamily: "'Sora', sans-serif", fontWeight: 700 }}
                   data-testid="button-cookie-accept"
                 >
                   Accept
